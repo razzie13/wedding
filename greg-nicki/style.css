@@ -1,0 +1,349 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-image: url("../images/pictures/greg_nicki_main_bg.jpg");
+  background-repeat: no-repeat;
+  font-family: "Nunito Sans";
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-position: center top 30%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  body {
+    background-position: center top;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    background-position: center top 43%;
+    background-size: cover;
+  }
+}
+
+header {
+  background-color: black;
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1;
+}
+
+@media screen and (min-width: 481px) {
+  header {
+    height: 5rem;
+  }
+}
+
+header .site-title {
+  font-family: "Sacramento";
+}
+
+@media screen and (max-width: 1024px) {
+  header .site-title {
+    text-align: center;
+  }
+}
+
+header .site-title a {
+  color: white;
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+header nav {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 5rem;
+}
+
+header nav #nav-left {
+  margin-left: 3.5rem;
+  font-size: 2.75rem;
+  font-family: "Sacramento";
+  font-weight: bold;
+}
+
+header nav #nav-right ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-right: calc(3.5rem - 24px);
+  text-transform: uppercase;
+}
+
+header nav #nav-right ul li {
+  display: block;
+  text-align: center;
+  padding: 0 24px;
+  text-decoration: none;
+  float: left;
+  line-height: 5rem;
+  font-family: 'Nunito Sans';
+  letter-spacing: 2px;
+}
+
+header nav #nav-right ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+header nav #nav-right ul li a:hover {
+  color: teal;
+}
+
+h1 {
+  font-family: "Sacramento";
+}
+
+#name {
+  text-align: center;
+  color: white;
+  position: absolute;
+  text-shadow: 0 0 25px black;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: "Sacramento";
+  font-weight: bold;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  #name {
+    top: 30%;
+    left: 50%;
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  #name {
+    top: 48%;
+    left: 50%;
+    font-size: 6rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  #name {
+    top: 35%;
+    left: 50%;
+    font-size: 10rem;
+  }
+}
+
+#date {
+  text-align: center;
+  font-size: 4rem;
+  font-family: "Nunito Sans";
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.404);
+}
+
+@media screen and (max-width: 480px) {
+  #date {
+    font-size: 2rem;
+    top: 78%;
+    left: 50%;
+    width: 100%;
+    border-radius: 0;
+    padding: 1rem 0;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    position: absolute;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  #date {
+    font-size: 2rem;
+    top: 75%;
+    left: 50%;
+    border-radius: 10px;
+    padding: 1rem 0;
+    width: 500px;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    position: absolute;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  #date {
+    position: absolute;
+    border-radius: 10px;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 75%;
+    left: 50%;
+    padding: 2rem 0;
+    width: 811px;
+  }
+}
+
+.wedding-posts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 480px) {
+  .wedding-posts {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .wedding-posts {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .page-header h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: -1rem;
+  }
+}
+
+article {
+  width: 300px;
+  height: 300px;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: lightgray;
+  margin: 1rem auto;
+  border-style: none;
+  border-radius: 0.8rem;
+}
+
+article h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+article h2 a {
+  text-decoration: none;
+  color: black;
+}
+
+article h3 {
+  margin-bottom: 0;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+article i {
+  display: inline;
+  margin-right: 0.25rem;
+  color: red;
+}
+
+footer .site-info {
+  text-align: center;
+  font-size: 0.5rem;
+}
+
+/* Navigation
+--------------------------------------------- */
+.main-navigation {
+  display: block;
+  width: 100%;
+}
+
+.main-navigation ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.main-navigation ul ul {
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  float: left;
+  position: absolute;
+  top: 100%;
+  left: -999em;
+  z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+  left: -999em;
+  top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+  display: block;
+  left: auto;
+}
+
+.main-navigation ul ul a {
+  width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+  left: auto;
+}
+
+.main-navigation li {
+  position: relative;
+  padding-left: 1.5rem;
+  text-transform: uppercase;
+  height: 3rem;
+  line-height: 3rem;
+  background-color: teal;
+  color: white;
+}
+
+.main-navigation a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+  display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+  .menu-toggle {
+    display: none;
+  }
+  .main-navigation ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+/*# sourceMappingURL=style.css.map */

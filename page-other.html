@@ -7,15 +7,28 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
-    <title>The Countdown Is On!</title>
+    <title>Greg & Nicki - The Wedding Website</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"></head>
 <body>
+    <header>
+        <nav>
+            <div id="nav-left">Greg & Nicki</div>
+            <div id="nav-right">
+                <ul>
+                    <li><a href="#">rsvp</a></li>
+                    <li><a href="#">the venue</a></li>
+                    <li><a href="#">getting here</a></li>
+                    <li><a href="#">program</a></li>
+                    <li><a href="#">vendors</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <div id="name">Greg & Nicki</div>
 
