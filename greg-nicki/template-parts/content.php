@@ -22,9 +22,9 @@
 		endif;
 		?>
 
-		<?php the_field('vendor_website') ?>
-
-		<i class="fab fa-instagram-square"></i><a href="https://www.instagram.com/<?php the_field('vendor_insta') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_insta') ?></a>
+		<a href="<?php the_field('vendor_website') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_website') ?></a>
+		<br>
+		<i class="fab fa-instagram-square"></i>@<a href="https://www.instagram.com/<?php the_field('vendor_insta') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_insta') ?></a>
 
 	<?php greg_nicki_post_thumbnail(); ?>
 

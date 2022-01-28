@@ -19,6 +19,8 @@ get_header();
 
 	<main id="primary" class="site-main">
 
+	<?php the_title( '<h1 class="page-entry-title">', '</h1>' ); ?>
+
 		<?php
 		while ( have_posts() ) :
 			the_post();

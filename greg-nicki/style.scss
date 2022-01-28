@@ -41,9 +41,25 @@ header  {
     z-index: 1;
 
     
-    @media screen and (min-width: $min_tablet_width) {
+    @media screen and (min-width: $min_desktop_width) {
         height: 5rem;
         
+    }
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width)  {
+        height: 7rem;
+    }
+
+    .site-branding  {
+
+        @media screen and (max-width: $max_tablet_width)  {
+            margin-top: -1rem;
+        }
+
+        @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width)  {
+            height: 9rem;
+        }
+      
     }
 
     .site-title  {
@@ -53,11 +69,31 @@ header  {
             text-align: center;
         }
 
+        @media screen and (min-width: $min_desktop_width) {
+            text-align: left;
+            max-width: 1360px;
+            margin: auto;
+        }
+
         a  {
             color: white;
             text-decoration: none;
             font-size: 3rem;
             font-weight: bold;
+        }
+    }
+
+    .site-description {
+
+        @media screen and (max-width: $max_tablet_width) {
+            text-align: center;
+            margin-top: -1rem;
+            padding-bottom: 1rem;
+        }
+        
+
+        @media screen and (min-width: $min_desktop_width) {
+            text-align: right;
         }
     }
 
@@ -200,8 +236,40 @@ h1  {
     }
 }
 
+main  {
+    @media screen and (min-width: $min_desktop_width) {
+        display: flex;
+        max-width: 1360px;
+        margin: auto;
+        margin-top: 6rem;
+    }
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
+        width: calc($max_tablet_width - 2rem);
+        margin: auto;
+        margin-top: 6rem;
+    }
+}
+
+
+
+
+
 .wedding-posts {
     display: flex;
+
+    @media screen and (min-width: $min_desktop_width) {
+        width: 960px;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 664px;
+        margin: auto;
+        flex-wrap: wrap;
+    }
     
 
     @media screen and (max-width: $max_mobile_width) {
@@ -209,56 +277,108 @@ h1  {
         justify-content: space-around;
     }
 
-    @media screen and (min-width: $min_tablet_width) {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
 
-.page-header  h1  {
-    @media screen and (max-width: $max_tablet_width) {
-        text-align: center;
-        font-size: 4rem;
-        margin-bottom: -1rem;
-    }
-}
 
-article {
-    width: 300px;
-    height: 300px;
-    padding: 1rem;
-    box-sizing: border-box;
-    background-color: lightgray;
-    margin: 1rem auto;
-    border-style: none;
-    border-radius: 0.8rem;
+    article {
 
-    h2  {
-
-        margin-top: 0;
-        margin-bottom: 0;
-
+        width: 300px;
+        height: 300px;
+        padding: 1rem;
+        box-sizing: border-box;
+        background-color: lightgray;
+        margin: 1rem auto;
+        border-style: none;
+        border-radius: 0.8rem;
+    
+        h2  {
+    
+            margin-top: 0;
+            margin-bottom: 0;
+    
+            a  {
+                text-decoration: none;
+                color: black;
+            }
+    
+        }
+    
+        h3  {
+            margin-bottom: 0;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+    
         a  {
             text-decoration: none;
             color: black;
         }
+    
+        i  {
+            margin-right: 0.25rem;
+            color: red;
+        }
+    
+    }
+}
 
+.page-header  {
+    @media screen and (min-width: $min_desktop_width) {
+        width: 400px;
+    }
+}
+
+.page-header h1, .page-entry-title  {
+    @media screen and (max-width: $max_tablet_width) {
+        text-align: center;
+        font-size: 4rem;
+        margin-bottom: -1rem;
+        margin-top: 2rem;
+    }
+
+    @media screen and (min-width: $min_desktop_width) {
+        font-size: 5rem;
+        width: 460px
+    }
+}
+
+.page-content  {
+
+    @media screen and (max-width: $max_mobile_width) {
+        width: calc(300px - 1rem);
+        margin: auto;
+        font-size: 1.5rem;
+    }
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
+        p  {
+            margin: 1rem 3rem;
+        }
+    }
+
+    @media screen and (min-width: $min_desktop_width) {
+        width: 900px;
+        margin: auto;
+        font-size: 1.5rem;
+    }
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
+        h2  {
+            margin-left: 3rem;
+        }
     }
 
     h3  {
-        margin-bottom: 0;
-        margin-top: 0;
-        text-transform: uppercase;
-        font-size: 1rem;
-    }
+        font-family: 'Overpass';
 
-    i  {
-        display: inline;
-        margin-right: 0.25rem;
-        color: red;
+        @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
+            margin-left: 3rem;
+        }
     }
-
+    
 }
+
+
 
 footer  {
 
@@ -269,12 +389,24 @@ footer  {
 
 }
 
+#wpgmza_map {
+    margin-bottom: 3rem;
+}
 
 /* Navigation
 --------------------------------------------- */
 .main-navigation {
 	display: block;
 	width: 100%;
+
+    @media screen and (min-width: $min_desktop_width) {
+        margin: -7rem auto;
+        margin-left: calc(((100% - 1360px) / 2) + 35.1rem);
+    }
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width)  {
+        margin: -2.8rem auto;
+    }
 }
 
 .main-navigation ul {
@@ -315,24 +447,51 @@ footer  {
 
 .main-navigation li {
 	position: relative;
-    padding-left: 1.5rem;
+    
     text-transform: uppercase;
     height: 3rem;
     line-height: 3rem;
-    background-color: teal;
+    
     color: white;
+
+    @media screen and (max-width: $max_tablet_width) {
+        border-style: solid;
+        border-width: 2px 0 0 0;
+        border-color: black;
+        background-color: teal;
+        padding-left: 1.5rem;
+    }
+
+    @media screen and (min-width: $min_desktop_width) {
+        background-color: black;
+        padding-left: 2.5rem;
+    }
+    
 }
 
 .main-navigation a {
 	display: block;
 	text-decoration: none;
     color: white;
+
+    @media screen and (min-width: $min_desktop_width) {
+        &:hover  {
+            color: teal;
+        }
+    }
 }
 
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
+    width: 100%;
+    background-color: teal;
+    border-style: none;
+    font-weight: bold;
+    color: white;
+    height: 1.5rem;
+    margin-top: -1.5rem;
 }
 
 @media screen and (min-width: 37.5em) {

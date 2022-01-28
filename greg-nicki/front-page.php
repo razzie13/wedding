@@ -16,18 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"></head>
 <body>
     <header>
-        <nav>
-            <div id="nav-left">Greg & Nicki</div>
-            <div id="nav-right">
-                <ul>
-                    <li><a href="#">rsvp</a></li>
-                    <li><a href="#">the venue</a></li>
-                    <li><a href="#">getting here</a></li>
-                    <li><a href="#">program</a></li>
-                    <li><a href="#">vendors</a></li>
-                </ul>
-            </div>
-        </nav>
+
     </header>
 
     <div id="name">Greg & Nicki</div>

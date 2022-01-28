@@ -11,12 +11,14 @@
 
 <!-- start content-page.php -->
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+
+		<!-- <?php the_title( '<h1 class="page-entry-title">', '</h1>' ); ?> -->
+
 
 	<?php greg_nicki_post_thumbnail(); ?>
+
+	<div class="page-content">
 
 	<div class="entry-content">
 		<?php
@@ -30,6 +32,8 @@
 		);
 		?>
 	</div><!-- .entry-content -->
+
+	</div><!-- .page-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">

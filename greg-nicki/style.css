@@ -34,9 +34,27 @@ header {
   z-index: 1;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 1025px) {
   header {
     height: 5rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header {
+    height: 7rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  header .site-branding {
+    margin-top: -1rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header .site-branding {
+    height: 9rem;
   }
 }
 
@@ -50,11 +68,33 @@ header .site-title {
   }
 }
 
+@media screen and (min-width: 1025px) {
+  header .site-title {
+    text-align: left;
+    max-width: 1360px;
+    margin: auto;
+  }
+}
+
 header .site-title a {
   color: white;
   text-decoration: none;
   font-size: 3rem;
   font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+  header .site-description {
+    text-align: center;
+    margin-top: -1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  header .site-description {
+    text-align: right;
+  }
 }
 
 header nav {
@@ -193,10 +233,53 @@ h1 {
   }
 }
 
+@media screen and (min-width: 1025px) {
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1360px;
+    margin: auto;
+    margin-top: 6rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  main {
+    width: calc($max_tablet_width - 2rem);
+    margin: auto;
+    margin-top: 6rem;
+  }
+}
+
 .wedding-posts {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media screen and (min-width: 1025px) {
+  .wedding-posts {
+    width: 960px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .wedding-posts {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 664px;
+    margin: auto;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -210,27 +293,7 @@ h1 {
   }
 }
 
-@media screen and (min-width: 481px) {
-  .wedding-posts {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .page-header h1 {
-    text-align: center;
-    font-size: 4rem;
-    margin-bottom: -1rem;
-  }
-}
-
-article {
+.wedding-posts article {
   width: 300px;
   height: 300px;
   padding: 1rem;
@@ -242,27 +305,91 @@ article {
   border-radius: 0.8rem;
 }
 
-article h2 {
+.wedding-posts article h2 {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-article h2 a {
+.wedding-posts article h2 a {
   text-decoration: none;
   color: black;
 }
 
-article h3 {
+.wedding-posts article h3 {
   margin-bottom: 0;
   margin-top: 0;
   text-transform: uppercase;
   font-size: 1rem;
 }
 
-article i {
-  display: inline;
+.wedding-posts article a {
+  text-decoration: none;
+  color: black;
+}
+
+.wedding-posts article i {
   margin-right: 0.25rem;
   color: red;
+}
+
+@media screen and (min-width: 1025px) {
+  .page-header {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .page-header h1, .page-entry-title {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: -1rem;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .page-header h1, .page-entry-title {
+    font-size: 5rem;
+    width: 460px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page-content {
+    width: calc(300px - 1rem);
+    margin: auto;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .page-content p {
+    margin: 1rem 3rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .page-content {
+    width: 900px;
+    margin: auto;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .page-content h2 {
+    margin-left: 3rem;
+  }
+}
+
+.page-content h3 {
+  font-family: 'Overpass';
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .page-content h3 {
+    margin-left: 3rem;
+  }
 }
 
 footer .site-info {
@@ -270,11 +397,28 @@ footer .site-info {
   font-size: 0.5rem;
 }
 
+#wpgmza_map {
+  margin-bottom: 3rem;
+}
+
 /* Navigation
 --------------------------------------------- */
 .main-navigation {
   display: block;
   width: 100%;
+}
+
+@media screen and (min-width: 1025px) {
+  .main-navigation {
+    margin: -7rem auto;
+    margin-left: calc(((100% - 1360px) / 2) + 35.1rem);
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .main-navigation {
+    margin: -2.8rem auto;
+  }
 }
 
 .main-navigation ul {
@@ -316,12 +460,27 @@ footer .site-info {
 
 .main-navigation li {
   position: relative;
-  padding-left: 1.5rem;
   text-transform: uppercase;
   height: 3rem;
   line-height: 3rem;
-  background-color: teal;
   color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-navigation li {
+    border-style: solid;
+    border-width: 2px 0 0 0;
+    border-color: black;
+    background-color: teal;
+    padding-left: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .main-navigation li {
+    background-color: black;
+    padding-left: 2.5rem;
+  }
 }
 
 .main-navigation a {
@@ -330,10 +489,23 @@ footer .site-info {
   color: white;
 }
 
+@media screen and (min-width: 1025px) {
+  .main-navigation a:hover {
+    color: teal;
+  }
+}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block;
+  width: 100%;
+  background-color: teal;
+  border-style: none;
+  font-weight: bold;
+  color: white;
+  height: 1.5rem;
+  margin-top: -1.5rem;
 }
 
 @media screen and (min-width: 37.5em) {
