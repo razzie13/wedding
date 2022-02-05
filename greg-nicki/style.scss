@@ -1,4 +1,7 @@
+$min_ultrawide_width: 1921px;
+
 $min_desktop_width: 1025px;
+$max_desktop_width: 1920px;
 
 $min_tablet_width: 481px;
 $max_tablet_width: 1024px;
@@ -25,8 +28,13 @@ body  {
         background-size: cover;
     }
 
-    @media screen and (min-width: $min_desktop_width) {
+    @media screen and (min-width: $min_desktop_width) and (max-width: $max_desktop_width) {
         background-position: center top 43%;
+        background-size: cover;
+    }
+
+    @media screen and (min-width: $min_ultrawide_width) {
+        background-position: center top 48%;
         background-size: cover;
     }
     

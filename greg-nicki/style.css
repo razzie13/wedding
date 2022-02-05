@@ -19,9 +19,16 @@ body {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1920px) {
   body {
     background-position: center top 43%;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  body {
+    background-position: center top 48%;
     background-size: cover;
   }
 }
