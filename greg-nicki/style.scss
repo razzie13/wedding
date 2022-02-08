@@ -8,8 +8,19 @@ $max_tablet_width: 1024px;
 
 $max_mobile_width: 480px;
 
-$display_font: 'Sacramento';
+$display_font: 'Honeymoon';
 $body_font: 'Nunito Sans';
+
+@font-face {
+  font-family: Honeymoon;
+  src: url(fonts/Honeymoon/Honeymoon_PERSONAL.ttf);
+}
+
+@font-face {
+  font-family: Honeymoon;
+  src: url(fonts/Honeymoon/HoneymoonBold_PERSONAL.ttf);
+  font-weight: bold;
+}
 
 body  {
     padding: 0;
@@ -253,7 +264,7 @@ main  {
     }
 
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
-        width: calc($max_tablet_width - 2rem);
+        width: calc(#{$max_tablet_width} - 2rem);
         margin: auto;
         margin-top: 6rem;
     }
