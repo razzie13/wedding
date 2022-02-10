@@ -10,6 +10,21 @@
  * 
  */
 
+// include_once 'includes/dbc.inc.php';
+
+include_once('../wp-config.php');
+
+$conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+
+$sql = mysqli_query($conn, "SELECT * FROM invite_responses"); 
+
+global $wpdb;
+$result = $wpdb->get_results( "SELECT * FROM invite_responses");
+foreach ( $result as $print )   { ?>
+          <td>  <?php echo $print; ?> </td>
+    <?php }
+
+
 if( !defined('ABSPATH') )
 {
     exit;
@@ -123,8 +138,12 @@ class WeddingRsvpForm  {
             </p>
         </div>
 
+        
+
              
     <?php }
+
+    
 
 }
 

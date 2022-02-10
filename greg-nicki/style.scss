@@ -8,7 +8,7 @@ $max_tablet_width: 1024px;
 
 $max_mobile_width: 480px;
 
-$display_font: 'Honeymoon';
+$display_font: 'Carolina Mountains';
 $body_font: 'Nunito Sans';
 
 @font-face {
@@ -20,6 +20,16 @@ $body_font: 'Nunito Sans';
   font-family: Honeymoon;
   src: url(fonts/Honeymoon/HoneymoonBold_PERSONAL.ttf);
   font-weight: bold;
+}
+
+@font-face {
+    font-family: Great Vibes;
+    src: url(fonts/GreatVibes/GreatVibes.ttf);
+  }
+
+@font-face {
+    font-family: Carolina Mountains;
+    src: url(fonts/CarolinaMountains/CarolinaMountains.ttf);
 }
 
 body  {
@@ -420,7 +430,7 @@ footer  {
 
     @media screen and (min-width: $min_desktop_width) {
         margin: -7rem auto;
-        margin-left: calc(((100% - 1360px) / 2) + 35.1rem);
+        margin-left: calc(((100% - 1360px) / 2) + 29.5rem);
     }
 
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width)  {
@@ -504,6 +514,8 @@ footer  {
 	display: block;
 	text-decoration: none;
     color: white;
+    font-weight: 700;
+    letter-spacing: 2px;
 
     @media screen and (min-width: $min_desktop_width) {
         &:hover  {
