@@ -10,25 +10,19 @@
  * 
  */
 
-// include_once 'includes/dbc.inc.php';
+require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' );
+$table_name = 'invite_responses';
+$column_name = 'postal_code';
+$result = $wpdb->get_results( "SELECT $column_name FROM $table_name");
 
-include_once('../wp-config.php');
-
-$conn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
-
-$sql = mysqli_query($conn, "SELECT * FROM invite_responses"); 
-
-global $wpdb;
-$result = $wpdb->get_results( "SELECT * FROM invite_responses");
-foreach ( $result as $print )   { ?>
-          <td>  <?php echo $print; ?> </td>
-    <?php }
+$form_postal_code = "";
+if(isset($_POST['submitbutton'])){ //check if form was submitted
+  $input = $_POST['postcode']; //get input text
+  $message = "Success! You entered: ".$input;
+}    
 
 
-if( !defined('ABSPATH') )
-{
-    exit;
-}
+echo "<script>console.log('" .$result. "');</script>";
 
 class WeddingRsvpForm  {
 
@@ -89,14 +83,27 @@ class WeddingRsvpForm  {
     public function load_shortcode()
     {?>
         <h2>We're so excited to hear from you!</h2>
-        <label for='postcode'>Enter your Postal/Zip Code to Begin</label><br>
-        <input type="text" id="postcode"><br><br>
+
+        <label for="rsvp_progress">Your Progress:</label>
+        <progress id="rsvp_progress" value="0" max="100"> 0% </progress>
+        <br><br><br>
+
+        <form method="post">
+
+            <label for='postcode'>Enter your Postal/Zip Code:</label><br>
+            <input type="text" id="postcode" name="postcode"><br><br>
+
+            <input type="submit" value="Next" name="submitbutton">
+
+        </form>
 
         <h3>Will You Attend our Event?</h3>
+        <form method="post">
         <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES" onchange="chooseToAttend()">
         <label for="rsvp-yes">I'll Be There with Bells On!</label><br>
         <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onchange="chooseNotToAttend()">
         <label for="rsvp-no">I regrettably cannot attend.</label><br><br>
+        </form>
 
         <div id="rsvp-details" class="hide">
 
