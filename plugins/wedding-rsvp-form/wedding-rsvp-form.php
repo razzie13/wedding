@@ -24,11 +24,10 @@ $result = $wpdb->get_row($query);
 $postal_code = $result->Postal_Code;
 $guest_one_name = $result->guest_one_name;
 $guest_two_name = $result->guest_two_name;
-
-echo $guest_one_name;
-echo $postal_code;
-
-
+$guest_three_name = $result->guest_three_name;
+$guest_four_name = $result->guest_four_name;
+$email_address_one = $result->email_address_one;
+$email_address_two = $result->email_address_two;
 
 class WeddingRsvpForm  {
 
@@ -86,20 +85,20 @@ class WeddingRsvpForm  {
 
     }
 
-    public function load_variables()
-    {
-        global $guest_one_name;
-        global $guest_two_name;
-    }
-
     public function load_shortcode()
 
-    {?>
+    {
+        global $postal_code;
+        global $guest_one_name;
+        global $guest_two_name;
+        global $guest_three_name;
+        global $guest_four_name;
+        global $email_address_one;
+        global $email_address_two;
+        
+        ?>
         <h2>We're so excited to hear from you!</h2>
-
-        <label for="rsvp_progress">Your Progress:</label>
-        <progress id="rsvp_progress" value="0" max="100"> 0% </progress>
-        <br><br><br>
+        <br>
 
         <form method="post">
 
@@ -111,7 +110,7 @@ class WeddingRsvpForm  {
         </form>
 
         <label for="rsvp_progress">Your Progress:</label>
-        <progress id="rsvp_progress" value="33" max="100"> 33% </progress>
+        <progress id="rsvp_progress" value="25" max="100"> 25% </progress>
         <br><br>
 
         <h3>Will You, or Anyone in your Household, Attend our Event?</h3>
@@ -128,22 +127,30 @@ class WeddingRsvpForm  {
         <div id="rsvp-attending" class="show">
 
         <label for="rsvp_progress">Your Progress:</label>
-        <progress id="rsvp_progress" value="66" max="100"> 66% </progress>
+        <progress id="rsvp_progress" value="50" max="100"> 50% </progress>
         <br><br>
 
             <form method="post">
 
                 <h3>So, who's all coming?</h3>
+                <h4 class="header-four-rsvp">You May Edit or Remove Names from the Guestlist Here</h4>
                 <label for='first-guest'>First Guest</label><br>
                 <input type="text" id="first-guest" value="<?php echo $guest_one_name; ?>"><br>
-                <label for='second-guest'>Second Guest</label><br>
-                <input type="text" id="second-guest" value="<?php echo $guest_two_name; ?>"><br>
-                <label for='third-guest'>Third Guest</label><br>
-                <input type="text" id="third-guest"><br>
-                <label for='fourth-guest'>Fourth Guest</label><br>
-                <input type="text" id="fourth-guest"><br><br>
-
+                <?php if ($guest_two_name != null)  {
+                    echo "<label for='second-guest'>Second Guest</label><br>";
+                    echo "<input type='text' id='second-guest' value='$guest_two_name'><br>";
+                } ?>
+                <?php if ($guest_three_name != null)  {
+                    echo "<label for='second-guest'>Third Guest</label><br>";
+                    echo "<input type='text' id='third-guest' value='$guest_three_name'><br>";
+                } ?>
+                <?php if ($guest_four_name != null)  {
+                    echo "<label for='second-guest'>Fourth Guest</label><br>";
+                    echo "<input type='text' id='fourth-guest' value='$guest_four_name'><br>";
+                } ?>
+                
                 <h3>Do You Want Us to Keep You Updated?</h3>
+                <h4 class="header-four-rsvp">Add or Edit Your Email Address Here</h4>
 
                 
                 <input type="radio" id="check-no-email" name="check-email" onchange="chooseNotToAttend()">
@@ -153,11 +160,17 @@ class WeddingRsvpForm  {
                 <br><br>
                 <div id="email-attend-input-section" class="hide">
                     <label for='email_one'>Main Email Address</label><br>
-                    <input type="email" id="email_one"><br>
+                    <input type="email" id="email_one" placeholder="example_one@example.com"><br>
                     <label for='email_two'>Secondary Email Address</label><br>
-                    <input type="email" id="email_two"><br><br><br>
+                    <input type="email" id="email_two" placeholder="example_two@example.com"><br><br><br>
                 </div>
 
+                <label for="rsvp_progress">Your Progress:</label>
+                <progress id="rsvp_progress" value="75" max="100"> 75% </progress>
+                <br><br>
+
+                <h3>Would you like to leave us a note?</h3>
+                <textarea></textarea>
 
                 <input type="submit" value="Click to Send Us your RSVP!">
 
