@@ -88,3 +88,9 @@ const validatePostalOrZipCode = () =>  {
         document.getElementById('postcode').disabled = true;
     }
 }
+
+
+
+const resetPostalZipField = () =>  {
+    document.getElementById('postcode').innerText = '';
+}

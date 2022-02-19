@@ -114,28 +114,39 @@ class WeddingRsvpForm  {
         global $guest_four_name;
         global $email_address_one;
         global $email_address_two;
+        global $result;
 
         $guest_array = array($guest_two_name, $guest_three_name, $guest_four_name);
         
-        $security_codes = array('ab','ab','ab','ab','ab','ab','ab','ab','ab','ab');
+        $security_codes = array('th','ho','of','yo','pr','is','re','at','th','ma');
 
 
         ?>
         <h2>We're so excited to hear from you!</h2>
+        <h5 id="post-code-confirm" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">You entered <? if (strlen($postal_code) < 6) {echo 'Zip Code';} else {echo 'Postal Code';} ?> <?php echo $postal_code; ?></h5>
+        <h5 class="<? if($result == null) {echo 'hide';} else {echo 'show';} ?>"><?php if ($postal_code == $result)  {'Sorry, It appears nobody at your address has been invited.';}  ?></h5>
         <br>
+
+        
+
 
         <form method="post" action="">
 
             <div id="form-login" class="show">
                 <label for='postcode'>Enter your Postal/Zip Code:</label><br>
-                <input type="text" id="postcode" name="postcode"><br><br>
+                <input type="text" id="postcode" name="postcode" placeholder="X0X 0X0 (Canada) or 00000 (USA)" value="<?php if ($postal_code != null) {echo $postal_code;} ?>"><br><br>
+                <input type='submit' value='Next' name='submit-button-one'>
 
-                <input type="submit" value="Next" name="submit-button-one"  onclick="clickFormButtonOne()">
+                <?php //if ($postal_code == null)  {
+                    //echo "<input type='submit' value='Next' name='submit-button-one'>";
+                //} else  {
+                    //echo "<input type='button' value='Next' name='submit-button-one' onclick='clickFormButtonOne()'><input type='reset' value='Reset Form' name='reset-button' onclick='resetPostalZipField()'>";
+                //}
+                ?> 
+                
             </div>
 
         </form>
-
-        
 
         <form method="post" action="">
 
@@ -147,9 +158,9 @@ class WeddingRsvpForm  {
 
                 <h3>Will You, or Anyone in your Household, Attend our Event?</h3>
         
-                <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES">
-                <label for="rsvp-yes">Yes! Let's confirm!</label><br>
-                <input type="radio" id="rsvp-no" name="rsvp-button" value="NO">
+                <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES" onclick="() => {this.value}">
+                <label for="rsvp-yes">We're coming - save us a spot!</label><br>
+                <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onclick="() => {this.value}">
                 <label for="rsvp-no">Regrettably, we cannot attend.</label><br><br>
 
                 <input type="button" value="Next" name="submit-button-two" onclick="clickFormButtonTwo(value)"></input>
@@ -164,7 +175,7 @@ class WeddingRsvpForm  {
 
                 <h3>So, who's all coming?</h3>
 
-                <h4 class="header-four-rsvp">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?>Names from the Guestlist Here</h4>
+                <h4 class="header-four-rsvp">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?>Names from the Guestlist Here </h4>
                 <label for='first-guest'>First Guest</label><br>
                 <input type="text" id="first-guest" value="<?php echo $guest_one_name; ?>"><br>
                 <?php if ($guest_two_name != null)  {
@@ -211,12 +222,25 @@ class WeddingRsvpForm  {
                 <textarea></textarea>
 
                 <input type="button" value="Prev" name="back-button-three" onclick="clickFormBackButtonFour()"></input>
-                <input type="submit" value="Next" name="submit-button-four">Click Here to Send Us Your RSVP</inp>
+                <input type="submit" value="Click Here to Send Us Your RSVP" name="submit-button-four"></input>
 
             </div>
 
         </form>
 
+        </div>
+
+        <div id="confirm-not-attending" class="hide">
+
+            <label for="rsvp_progress">Your Progress:</label>
+            <progress id="rsvp_progress" value="75" max="100"> 75% </progress>
+            <br><br>
+
+            <h3>Confirm that you are unable to make it to our event.</h3>
+            <form method="POST" action="">
+                <input type="checkbox" value="true" hidden></input>
+                <input type="submit" value="Click Here to Decline your Invitation"></input>
+            </form>
         </div>
 
         <div id="rsvp-not-attending" class="hide">
