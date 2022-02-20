@@ -133,18 +133,25 @@ class WeddingRsvpForm  {
         <form method="post" action="">
 
             <div id="form-login" class="show">
-                <label for='postcode'>Enter your Postal/Zip Code:</label><br>
-                <input type="text" id="postcode" name="postcode" placeholder="X0X 0X0 (Canada) or 00000 (USA)" value="<?php if ($postal_code != null) {echo $postal_code;} ?>"><br><br>
-                <input type='submit' value='Next' name='submit-button-one'>
+                <div id="enter-postal-code" class="<? if($postal_code == null) {echo 'show';} else {echo 'hide';} ?>">
+                    <label for='postcode'>Enter the Postal/Zip Code on your Envelope's Address:</label><br>
+                    <input type="text" id="postcode" name="postcode" placeholder="X0X 0X0 (Canada) or 00000 (USA)" value="<?php if ($postal_code != null) {echo $postal_code;} ?>"><br>
 
-                <?php //if ($postal_code == null)  {
-                    //echo "<input type='submit' value='Next' name='submit-button-one'>";
-                //} else  {
-                    //echo "<input type='button' value='Next' name='submit-button-one' onclick='clickFormButtonOne()'><input type='reset' value='Reset Form' name='reset-button' onclick='resetPostalZipField()'>";
-                //}
-                ?> 
+                    <input type='submit' value='Next' name='submit-button-one'  class="<? if($postal_code == null) {echo 'show';} else {echo 'hide';} ?>">
+                </div>
+                
+
+                <div id="enter-security-code" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">
+                    <label for='postcode'>Enter the First Two Letters from Word <?php echo $postal_code[1]; ?> inside your invitation:</label><br>
+
+                    <input type="text" id="securitycode" name="securitycode" placeholder="XX" value=""><br><br>
+                    <?php echo "<input type='submit' value='Next' name='submit-button-one'>"; ?>
+                    
+                </div>
                 
             </div>
+
+            
 
         </form>
 
@@ -155,13 +162,21 @@ class WeddingRsvpForm  {
                 <label for="rsvp_progress">Your Progress:</label>
                 <progress id="rsvp_progress" value="25" max="100"> 25% </progress>
                 <br><br>
+<!-- 
+                <h3>Here are the names in our database for your address:</h3>
+                <ul>
+                    <li><?php echo $guest_one_name; ?></li>
+                    <?php if ($guest_two_name != null)  {echo "<li>$guest_two_name</li>"; } ?>
+                    <?php if ($guest_three_name != null)  {echo "<li>$guest_three_name</li>"; } ?>
+                    <?php if ($guest_four_name != null)  {echo "<li>$guest_four_name</li>"; } ?>
+                </ul> -->
 
                 <h3>Will You, or Anyone in your Household, Attend our Event?</h3>
         
                 <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES" onclick="() => {this.value}">
-                <label for="rsvp-yes">We're coming - save us a spot!</label><br>
+                <label for="rsvp-yes">Save a spot!</label><br>
                 <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onclick="() => {this.value}">
-                <label for="rsvp-no">Regrettably, we cannot attend.</label><br><br>
+                <label for="rsvp-no">Sadly, we evict to vote no.</label><br><br>
 
                 <input type="button" value="Next" name="submit-button-two" onclick="clickFormButtonTwo(value)"></input>
 
@@ -173,34 +188,34 @@ class WeddingRsvpForm  {
                 <progress id="rsvp_progress" value="50" max="100"> 50% </progress>
                 <br><br>
 
-                <h3>So, who's all coming?</h3>
+                <h3>So, who's all attending?</h3>
 
-                <h4 class="header-four-rsvp">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?>Names from the Guestlist Here </h4>
-                <label for='first-guest'>First Guest</label><br>
+                <h4 class="header-four-rsvp">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?>Names from the Guestlist Here. To remove a name from the guest list, simply delete the guest name. </h4>
+                <label for='first-guest'>Guest</label><br>
                 <input type="text" id="first-guest" value="<?php echo $guest_one_name; ?>"><br>
                 <?php if ($guest_two_name != null)  {
-                    echo "<label for='second-guest'>Second Guest</label><br>";
+                    echo "<label for='second-guest'>Guest</label><br>";
                     echo "<input type='text' id='second-guest' value='$guest_two_name'><br>";
                 } ?>
                 <?php if ($guest_three_name != null)  {
-                    echo "<label for='second-guest'>Third Guest</label><br>";
+                    echo "<label for='second-guest'>Guest</label><br>";
                     echo "<input type='text' id='third-guest' value='$guest_three_name'><br>";
                 } ?>
                 <?php if ($guest_four_name != null)  {
-                    echo "<label for='second-guest'>Fourth Guest</label><br>";
+                    echo "<label for='second-guest'>Guest</label><br>";
                     echo "<input type='text' id='fourth-guest' value='$guest_four_name'><br>";
                 } ?>
             
-                <h3>Do You Want Us to Keep You Updated?</h3>
-                <h4 class="header-four-rsvp">Add or Edit Your Email Address Here</h4>
+                <h3>Enter your Email Address so we can send you updates</h3>
+                <h4 class="header-four-rsvp">Don't worry - we won't spam you!</h4>
 
             
-                <input type="radio" id="check-no-email" name="check-email" onchange="chooseNotToAttend()">
+                <!-- <input type="radio" id="check-no-email" name="check-email" onchange="chooseNotToAttend()">
                 <label for='check-no-email'>Nope - we're good.</label>
                 <input type="radio" id="check-yes-email" name="check-email" onchange="chooseToAttend()">
                 <label for='check-yes-email'>Let's keep in touch!</label>
-                <br><br>
-                <div id="email-attend-input-section" class="hide">
+                <br><br> -->
+                <div id="email-attend-input-section" class="show">
                     <label for='email_one'>Main Email Address</label><br>
                     <input type="email" id="email_one" placeholder="example_one@example.com"><br>
                     <label for='email_two'>Secondary Email Address</label><br>
@@ -219,6 +234,7 @@ class WeddingRsvpForm  {
                 <br><br>
 
                 <h3>Would you like to leave us a note?</h3>
+                <h5>Please let us know here if you have any dietary requirements or allergies.</h5>
                 <textarea></textarea>
 
                 <input type="button" value="Prev" name="back-button-three" onclick="clickFormBackButtonFour()"></input>
