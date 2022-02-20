@@ -174,9 +174,9 @@ class WeddingRsvpForm  {
                 <h3>Will You, or Anyone in your Household, Attend our Event?</h3>
         
                 <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES" onchange="guestsAreComing()">
-                <label for="rsvp-yes">Save a spot!</label><br>
-                <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onchange="">
-                <label for="rsvp-no">Sadly, we evict to vote no.</label><br><br>
+                <label for="rsvp-yes">Save <?php if ($guest_two_name != null)  {echo 'us ';} ?>a spot!</label><br>
+                <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onchange="guestsAreNotComing()">
+                <label for="rsvp-no"><?php if ($postal_code == 'N2N 1Y8' ? {echo 'Sadly, we evict to vote no.';} : {echo 'Sadly, we cannot attend.';} ?></label><br><br>
 
                 <!-- <input type="button" value="Next" name="submit-button-two" onclick="clickFormButtonTwo(value)"></input> -->
 
@@ -190,9 +190,11 @@ class WeddingRsvpForm  {
 
                 <h3>So, who's all attending?</h3>
 
-                <h4 class="header-four-rsvp">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?>Names from the Guestlist Here. To remove a name from the guest list, simply delete the guest name. </h4>
+                <h4 class="header-four-rsvp">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?>Names from the Guestlist Here. To remove a name from the guest list, simply uncheck the neighbouring box before hitting the submit button. </h4>
                 <label for='first-guest'>Guest</label><br>
                 <input type="text" id="first-guest" value="<?php echo $guest_one_name; ?>" ><br>
+                <label for='first-guest-attending'>Attending? </label><br>
+                <input type="checkbox" id="first-guest-attending" checked><br>
                 <?php if ($guest_two_name != null)  {
                     echo "<label for='second-guest'>Guest</label><br>";
                     echo "<input type='text' id='second-guest' value='{$guest_two_name}'><br>";
@@ -248,9 +250,9 @@ class WeddingRsvpForm  {
 
         <div id="confirm-not-attending" class="hide">
 
-            <label for="rsvp_progress">Your Progress:</label>
+            <!-- <label for="rsvp_progress">Your Progress:</label>
             <progress id="rsvp_progress" value="75" max="100"> 75% </progress>
-            <br><br>
+            <br><br> -->
 
             <h3>Confirm that you are unable to make it to our event.</h3>
             <form method="POST" action="">

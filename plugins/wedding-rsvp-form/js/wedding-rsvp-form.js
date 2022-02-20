@@ -38,9 +38,16 @@ const guestsAreComing = () => {
     document.getElementById('form-section-three').classList.add('show');
     // document.getElementById('form-section-four').classList.remove('show');
     // document.getElementById('form-section-four').classList.add('hide');
+    document.getElementById('confirm-not-attending').classList.remove('show');
+    document.getElementById('confirm-not-attending').classList.add('hide');
 }
 
 const guestsAreNotComing = () =>  {
+    console.log("Guests Are Not Coming");
+    document.getElementById('form-section-two').classList.remove('show');
+    document.getElementById('form-section-two').classList.add('hide');
+    document.getElementById('form-section-three').classList.remove('show');
+    document.getElementById('form-section-three').classList.add('hide');
     document.getElementById('confirm-not-attending').classList.remove('hide');
     document.getElementById('confirm-not-attending').classList.add('show');
 }
