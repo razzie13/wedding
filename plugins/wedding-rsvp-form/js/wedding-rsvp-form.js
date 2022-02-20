@@ -25,19 +25,24 @@ const clickFormButtonOne = (e) => {
     document.getElementById('form-section-four').classList.add('hide');
 }
 
-const clickFormButtonTwo = (e) => {
+const guestsAreComing = () => {
 
-    console.log(e);
-    document.getElementById('form-login').classList.remove('show');
-    document.getElementById('form-login').classList.add('hide');
-    document.getElementById('form-section-one').classList.remove('show');
-    document.getElementById('form-section-one').classList.add('hide');
+    console.log("Guests Are Coming");
+    // document.getElementById('form-login').classList.remove('show');
+    // document.getElementById('form-login').classList.add('hide');
+    // document.getElementById('form-section-one').classList.remove('show');
+    // document.getElementById('form-section-one').classList.add('hide');
     document.getElementById('form-section-two').classList.remove('hide');
     document.getElementById('form-section-two').classList.add('show');
-    document.getElementById('form-section-three').classList.remove('show');
-    document.getElementById('form-section-three').classList.add('hide');
-    document.getElementById('form-section-four').classList.remove('show');
-    document.getElementById('form-section-four').classList.add('hide');
+    document.getElementById('form-section-three').classList.remove('hide');
+    document.getElementById('form-section-three').classList.add('show');
+    // document.getElementById('form-section-four').classList.remove('show');
+    // document.getElementById('form-section-four').classList.add('hide');
+}
+
+const guestsAreNotComing = () =>  {
+    document.getElementById('confirm-not-attending').classList.remove('hide');
+    document.getElementById('confirm-not-attending').classList.add('show');
 }
 
 const clickFormButtonThree = (e) => {
@@ -53,20 +58,20 @@ const clickFormButtonThree = (e) => {
     document.getElementById('form-section-four').classList.add('hide');
 }
 
-const clickFormBackButtonThree = (e) => {
+// const clickFormBackButtonThree = (e) => {
 
-    console.log(e);
-    document.getElementById('form-login').classList.remove('show');
-    document.getElementById('form-login').classList.add('hide');
-    document.getElementById('form-section-one').classList.remove('show');
-    document.getElementById('form-section-one').classList.add('hide');
-    document.getElementById('form-section-two').classList.remove('hide');
-    document.getElementById('form-section-two').classList.add('show');
-    document.getElementById('form-section-three').classList.remove('show');
-    document.getElementById('form-section-three').classList.add('hide');
-    document.getElementById('form-section-four').classList.remove('show');
-    document.getElementById('form-section-four').classList.add('hide');
-}
+//     console.log(e);
+//     document.getElementById('form-login').classList.remove('show');
+//     document.getElementById('form-login').classList.add('hide');
+//     document.getElementById('form-section-one').classList.remove('show');
+//     document.getElementById('form-section-one').classList.add('hide');
+//     document.getElementById('form-section-two').classList.remove('hide');
+//     document.getElementById('form-section-two').classList.add('show');
+//     document.getElementById('form-section-three').classList.remove('show');
+//     document.getElementById('form-section-three').classList.add('hide');
+//     document.getElementById('form-section-four').classList.remove('show');
+//     document.getElementById('form-section-four').classList.add('hide');
+// }
 
 const clickFormBackButtonFour = (e) => {
 

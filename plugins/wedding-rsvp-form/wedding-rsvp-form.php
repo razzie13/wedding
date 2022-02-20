@@ -123,7 +123,7 @@ class WeddingRsvpForm  {
 
         ?>
         <h2>We're so excited to hear from you!</h2>
-        <h5 id="post-code-confirm" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">You entered <? if (strlen($postal_code) < 6) {echo 'Zip Code';} else {echo 'Postal Code';} ?> <?php echo $postal_code; ?></h5>
+        <h5 id="post-code-confirm" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">You have entered <? if (strlen($postal_code) < 6) {echo 'Zip Code';} else {echo 'Postal Code';} ?> <?php echo $postal_code; ?></h5>
         <h5 class="<? if($result == null) {echo 'hide';} else {echo 'show';} ?>"><?php if ($postal_code == $result)  {'Sorry, It appears nobody at your address has been invited.';}  ?></h5>
         <br>
 
@@ -141,13 +141,13 @@ class WeddingRsvpForm  {
                 </div>
                 
 
-                <div id="enter-security-code" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">
+                <!-- <div id="enter-security-code" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">
                     <label for='postcode'>Enter the First Two Letters from Word <?php echo $postal_code[1]; ?> inside your invitation:</label><br>
 
                     <input type="text" id="securitycode" name="securitycode" placeholder="XX" value=""><br><br>
                     <?php echo "<input type='submit' value='Next' name='submit-button-one'>"; ?>
                     
-                </div>
+                </div> -->
                 
             </div>
 
@@ -157,11 +157,11 @@ class WeddingRsvpForm  {
 
         <form method="post" action="">
 
-            <div id="form-section-one" class="hide">
+            <div id="form-section-one" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">
 
-                <label for="rsvp_progress">Your Progress:</label>
+                <!-- <label for="rsvp_progress">Your Progress:</label>
                 <progress id="rsvp_progress" value="25" max="100"> 25% </progress>
-                <br><br>
+                <br><br> -->
 <!-- 
                 <h3>Here are the names in our database for your address:</h3>
                 <ul>
@@ -173,29 +173,29 @@ class WeddingRsvpForm  {
 
                 <h3>Will You, or Anyone in your Household, Attend our Event?</h3>
         
-                <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES" onclick="() => {this.value}">
+                <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES" onchange="guestsAreComing()">
                 <label for="rsvp-yes">Save a spot!</label><br>
-                <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onclick="() => {this.value}">
+                <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onchange="">
                 <label for="rsvp-no">Sadly, we evict to vote no.</label><br><br>
 
-                <input type="button" value="Next" name="submit-button-two" onclick="clickFormButtonTwo(value)"></input>
+                <!-- <input type="button" value="Next" name="submit-button-two" onclick="clickFormButtonTwo(value)"></input> -->
 
             </div>
 
             <div id="form-section-two" class="hide">
 
-                <label for="rsvp_progress">Your Progress:</label>
+                <!-- <label for="rsvp_progress">Your Progress:</label>
                 <progress id="rsvp_progress" value="50" max="100"> 50% </progress>
-                <br><br>
+                <br><br> -->
 
                 <h3>So, who's all attending?</h3>
 
                 <h4 class="header-four-rsvp">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?>Names from the Guestlist Here. To remove a name from the guest list, simply delete the guest name. </h4>
                 <label for='first-guest'>Guest</label><br>
-                <input type="text" id="first-guest" value="<?php echo $guest_one_name; ?>"><br>
+                <input type="text" id="first-guest" value="<?php echo $guest_one_name; ?>" ><br>
                 <?php if ($guest_two_name != null)  {
                     echo "<label for='second-guest'>Guest</label><br>";
-                    echo "<input type='text' id='second-guest' value='$guest_two_name'><br>";
+                    echo "<input type='text' id='second-guest' value='{$guest_two_name}'><br>";
                 } ?>
                 <?php if ($guest_three_name != null)  {
                     echo "<label for='second-guest'>Guest</label><br>";
@@ -222,22 +222,22 @@ class WeddingRsvpForm  {
                     <input type="email" id="email_two" placeholder="example_two@example.com"><br><br><br>
                 </div>
 
-                <input type="button" value="Prev" name="back-button-three" onclick="clickFormBackButtonThree()"></input>
-                <input type="button" value="Next" name="submit-button-three" onclick="clickFormButtonThree()"></input>
+                <!-- <input type="button" value="Prev" name="back-button-three" onclick="clickFormBackButtonThree()"></input> -->
+                <!-- <input type="button" value="Next" name="submit-button-three" onclick="clickFormButtonThree()"></input> -->
 
             </div>
 
             <div id="form-section-three" class="hide">
 
-                <label for="rsvp_progress">Your Progress:</label>
+                <!-- <label for="rsvp_progress">Your Progress:</label>
                 <progress id="rsvp_progress" value="75" max="100"> 75% </progress>
-                <br><br>
+                <br><br> -->
 
                 <h3>Would you like to leave us a note?</h3>
                 <h5>Please let us know here if you have any dietary requirements or allergies.</h5>
                 <textarea></textarea>
 
-                <input type="button" value="Prev" name="back-button-three" onclick="clickFormBackButtonFour()"></input>
+                <!-- <input type="button" value="Previous" name="back-button-three" onclick="clickFormBackButtonFour()"></input> -->
                 <input type="submit" value="Click Here to Send Us Your RSVP" name="submit-button-four"></input>
 
             </div>
