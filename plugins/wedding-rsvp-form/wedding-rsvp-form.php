@@ -118,7 +118,7 @@ class WeddingRsvpForm  {
 
         $guest_array = array($guest_two_name, $guest_three_name, $guest_four_name);
         
-        $security_codes = array('th','ho','of','yo','pr','is','re','at','th','ma');
+        // $security_codes = array('th','ho','of','yo','pr','is','re','at','th','ma');
 
 
         ?>
@@ -155,7 +155,7 @@ class WeddingRsvpForm  {
 
         </form>
 
-        <form method="post" action="">
+        <form method="post" action="../wp-content/plugins/wedding-rsvp-form/includes/inviteaccept.inc.php">
 
             <div id="form-section-one" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">
 
@@ -171,12 +171,12 @@ class WeddingRsvpForm  {
                     <?php if ($guest_four_name != null)  {echo "<li>$guest_four_name</li>"; } ?>
                 </ul> -->
 
-                <h3>Will You, or Anyone in your Household, Attend our Event?</h3>
+                <h3>Will You <?php if ($guest_two_name != null) {echo ', or Anyone in your Household,';} else {echo '';} ?> Attend our Event?</h3>
         
                 <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES" onchange="guestsAreComing()">
-                <label for="rsvp-yes">Save <?php if ($guest_two_name != null)  {echo 'us ';} ?>a spot!</label><br>
+                <label for="rsvp-yes">Save <?php if ($guest_two_name != null)  {echo 'us ';} else {echo 'Me ';}  ?>a Spot!</label><br>
                 <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onchange="guestsAreNotComing()">
-                <label for="rsvp-no"><?php if ($postal_code == 'N2N 1Y8' ? {echo 'Sadly, we evict to vote no.';} : {echo 'Sadly, we cannot attend.';} ?></label><br><br>
+                <label for="rsvp-no">Sadly, <?php if ($guest_two_name != null)  {echo 'We';} else {echo 'I';} ?> Cannot Attend.</label><br><br>
 
                 <!-- <input type="button" value="Next" name="submit-button-two" onclick="clickFormButtonTwo(value)"></input> -->
 
@@ -188,24 +188,43 @@ class WeddingRsvpForm  {
                 <progress id="rsvp_progress" value="50" max="100"> 50% </progress>
                 <br><br> -->
 
-                <h3>So, who's all attending?</h3>
+                <h3><?php if ($guest_two_name != null) {echo 'So, Whos All Attending?';} else {echo 'Confirm Your Attendance';} ?></h3>
 
-                <h4 class="header-four-rsvp">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?>Names from the Guestlist Here. To remove a name from the guest list, simply uncheck the neighbouring box before hitting the submit button. </h4>
+                <!-- <?php if ($guest_four_name != 'Guest')  {echo '';} else {echo 'readonly';} ?> -->
+
+                <p class="header-four-rsvp bold">You May Confirm <?php if (in_array('Guest', $guest_array))  {echo 'or Edit ';} ?><?php if ($guest_two_name != null)  {echo 'Names from ';} else {echo 'Your Attendance to ';}  ?>the Guestlist Here. <?php if ($guest_two_name != null)  {echo 'To remove a name from the guest list, simply uncheck the neighbouring box before hitting the submit button.';} else {echo '';}  ?></p>
+                <br>
+                <p class="header-four-rsvp bold"><?php if (in_array('Guest', $guest_array))  {echo 'We Politely Request you Change the Name of Your +1 Guest from Guest to their actual name before confirming your RSVP';} ?></p>
+                
                 <label for='first-guest'>Guest</label><br>
-                <input type="text" id="first-guest" value="<?php echo $guest_one_name; ?>" ><br>
-                <label for='first-guest-attending'>Attending? </label><br>
-                <input type="checkbox" id="first-guest-attending" checked><br>
+                <div class="guest-name">
+                    <input type="text" id="first-guest" name='first-guest' value="<?php echo $guest_one_name; ?>" ><br>
+                    <label for='first-guest-attending' class="<?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>">Attending? </label><br>
+                    <input type="checkbox" id="first-guest-attending" name='first-guest-attending' class="<?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>" checked>
+                </div>
                 <?php if ($guest_two_name != null)  {
                     echo "<label for='second-guest'>Guest</label><br>";
-                    echo "<input type='text' id='second-guest' value='{$guest_two_name}'><br>";
+                    echo "<div class='guest-name'>";
+                    echo "<input type='text' id='second-guest' name='second-guest' value='{$guest_two_name}'><br>";
+                    echo "<label for='second-guest-attending'>Attending? </label><br>";
+                    echo "<input type='checkbox' id='second-guest-attending' name='second-guest-attending' value='' checked>";
+                    echo "</div>";
                 } ?>
                 <?php if ($guest_three_name != null)  {
-                    echo "<label for='second-guest'>Guest</label><br>";
-                    echo "<input type='text' id='third-guest' value='$guest_three_name'><br>";
+                    echo "<label for='third-guest'>Guest</label><br>";
+                    echo "<div class='guest-name'>";
+                    echo "<input type='text' id='third-guest' name='third-guest' value='{$guest_three_name}'><br>";
+                    echo "<label for='third-guest-attending'>Attending? </label><br>";
+                    echo "<input type='checkbox' id='third-guest-attending' name='third-guest-attending' value='' checked>";
+                    echo "</div>";
                 } ?>
                 <?php if ($guest_four_name != null)  {
-                    echo "<label for='second-guest'>Guest</label><br>";
-                    echo "<input type='text' id='fourth-guest' value='$guest_four_name'><br>";
+                    echo "<label for='fourth-guest'>Guest</label><br>";
+                    echo "<div class='guest-name'>";
+                    echo "<input type='text' id='fourth-guest' name='fourth-guest' value='{$guest_four_name}'><br>";
+                    echo "<label for='fourth-guest-attending'>Attending? </label><br>";
+                    echo "<input type='checkbox' id='fourth-guest-attending' name='fourth-guest-attending' checked>";
+                    echo "</div>";
                 } ?>
             
                 <h3>Enter your Email Address so we can send you updates</h3>
@@ -219,9 +238,9 @@ class WeddingRsvpForm  {
                 <br><br> -->
                 <div id="email-attend-input-section" class="show">
                     <label for='email_one'>Main Email Address</label><br>
-                    <input type="email" id="email_one" placeholder="example_one@example.com"><br>
+                    <input type="email" id="email_one" name='email-address-one' placeholder="example_one@example.com"><br>
                     <label for='email_two'>Secondary Email Address</label><br>
-                    <input type="email" id="email_two" placeholder="example_two@example.com"><br><br><br>
+                    <input type="email" id="email_two" name='email-address-two' placeholder="example_two@example.com"><br><br><br>
                 </div>
 
                 <!-- <input type="button" value="Prev" name="back-button-three" onclick="clickFormBackButtonThree()"></input> -->
@@ -237,12 +256,14 @@ class WeddingRsvpForm  {
 
                 <h3>Would you like to leave us a note?</h3>
                 <h5>Please let us know here if you have any dietary requirements or allergies.</h5>
-                <textarea></textarea>
+                <textarea name='user-comments'></textarea>
 
                 <!-- <input type="button" value="Previous" name="back-button-three" onclick="clickFormBackButtonFour()"></input> -->
                 <input type="submit" value="Click Here to Send Us Your RSVP" name="submit-button-four"></input>
 
             </div>
+
+            <input type="text" name="accept-postal-code" value="<?php echo $postal_code; ?>" hidden>
 
         </form>
 
@@ -255,8 +276,10 @@ class WeddingRsvpForm  {
             <br><br> -->
 
             <h3>Confirm that you are unable to make it to our event.</h3>
-            <form method="POST" action="">
+            <form method="POST" action="../wp-content/plugins/wedding-rsvp-form/includes/invitedecline.inc.php">
                 <input type="checkbox" value="true" hidden></input>
+                <input type="text" name="decline-postal-code" value="<?php echo $postal_code; ?>" hidden>
+                <input type="text" name="postcode" value="<?php echo $postal_code; ?>" hidden>
                 <input type="submit" value="Click Here to Decline your Invitation"></input>
             </form>
         </div>
