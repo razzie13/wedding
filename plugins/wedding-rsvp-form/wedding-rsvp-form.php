@@ -155,38 +155,23 @@ class WeddingRsvpForm  {
 
         </form>
 
-        <form method="post" action="../wp-content/plugins/wedding-rsvp-form/includes/inviteaccept.inc.php">
+        <form method="POST" action="../wp-content/plugins/wedding-rsvp-form/includes/inviteaccept.inc.php">
+
+            <input type="text" name="accept-postal-code" value="<?php echo $postal_code; ?>" hidden>
+            <input type="text" name="postcode" value="<?php echo $postal_code; ?>" hidden>
 
             <div id="form-section-one" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">
 
-                <!-- <label for="rsvp_progress">Your Progress:</label>
-                <progress id="rsvp_progress" value="25" max="100"> 25% </progress>
-                <br><br> -->
-<!-- 
-                <h3>Here are the names in our database for your address:</h3>
-                <ul>
-                    <li><?php echo $guest_one_name; ?></li>
-                    <?php if ($guest_two_name != null)  {echo "<li>$guest_two_name</li>"; } ?>
-                    <?php if ($guest_three_name != null)  {echo "<li>$guest_three_name</li>"; } ?>
-                    <?php if ($guest_four_name != null)  {echo "<li>$guest_four_name</li>"; } ?>
-                </ul> -->
-
                 <h3>Will You <?php if ($guest_two_name != null) {echo ', or Anyone in your Household,';} else {echo '';} ?> Attend our Event?</h3>
         
-                <input type="radio" id="rsvp-yes" name="rsvp-button" value="YES" onchange="guestsAreComing()">
+                <input type="radio" id="rsvp-yes" name="rsvp-yes" value="YES" onchange="guestsAreComing()">
                 <label for="rsvp-yes">Save <?php if ($guest_two_name != null)  {echo 'us ';} else {echo 'Me ';}  ?>a Spot!</label><br>
-                <input type="radio" id="rsvp-no" name="rsvp-button" value="NO" onchange="guestsAreNotComing()">
+                <input type="radio" id="rsvp-no" name="rsvp-no" value="NO" onchange="guestsAreNotComing()">
                 <label for="rsvp-no">Sadly, <?php if ($guest_two_name != null)  {echo 'We';} else {echo 'I';} ?> Cannot Attend.</label><br><br>
-
-                <!-- <input type="button" value="Next" name="submit-button-two" onclick="clickFormButtonTwo(value)"></input> -->
 
             </div>
 
             <div id="form-section-two" class="hide">
-
-                <!-- <label for="rsvp_progress">Your Progress:</label>
-                <progress id="rsvp_progress" value="50" max="100"> 50% </progress>
-                <br><br> -->
 
                 <h3><?php if ($guest_two_name != null) {echo 'So, Whos All Attending?';} else {echo 'Confirm Your Attendance';} ?></h3>
 
@@ -230,12 +215,6 @@ class WeddingRsvpForm  {
                 <h3>Enter your Email Address so we can send you updates</h3>
                 <h4 class="header-four-rsvp">Don't worry - we won't spam you!</h4>
 
-            
-                <!-- <input type="radio" id="check-no-email" name="check-email" onchange="chooseNotToAttend()">
-                <label for='check-no-email'>Nope - we're good.</label>
-                <input type="radio" id="check-yes-email" name="check-email" onchange="chooseToAttend()">
-                <label for='check-yes-email'>Let's keep in touch!</label>
-                <br><br> -->
                 <div id="email-attend-input-section" class="show">
                     <label for='email_one'>Main Email Address</label><br>
                     <input type="email" id="email_one" name='email-address-one' placeholder="example_one@example.com"><br>
@@ -243,37 +222,25 @@ class WeddingRsvpForm  {
                     <input type="email" id="email_two" name='email-address-two' placeholder="example_two@example.com"><br><br><br>
                 </div>
 
-                <!-- <input type="button" value="Prev" name="back-button-three" onclick="clickFormBackButtonThree()"></input> -->
-                <!-- <input type="button" value="Next" name="submit-button-three" onclick="clickFormButtonThree()"></input> -->
-
             </div>
 
             <div id="form-section-three" class="hide">
-
-                <!-- <label for="rsvp_progress">Your Progress:</label>
-                <progress id="rsvp_progress" value="75" max="100"> 75% </progress>
-                <br><br> -->
 
                 <h3>Would you like to leave us a note?</h3>
                 <h5>Please let us know here if you have any dietary requirements or allergies.</h5>
                 <textarea name='user-comments'></textarea>
 
-                <!-- <input type="button" value="Previous" name="back-button-three" onclick="clickFormBackButtonFour()"></input> -->
-                <input type="submit" value="Click Here to Send Us Your RSVP" name="submit-button-four"></input>
+                <input type="submit" value="Click Here to Send Us Your RSVP"></input>
 
             </div>
 
-            <input type="text" name="accept-postal-code" value="<?php echo $postal_code; ?>" hidden>
+            
 
         </form>
 
         </div>
 
         <div id="confirm-not-attending" class="hide">
-
-            <!-- <label for="rsvp_progress">Your Progress:</label>
-            <progress id="rsvp_progress" value="75" max="100"> 75% </progress>
-            <br><br> -->
 
             <h3>Confirm that you are unable to make it to our event.</h3>
             <form method="POST" action="../wp-content/plugins/wedding-rsvp-form/includes/invitedecline.inc.php">
@@ -289,13 +256,8 @@ class WeddingRsvpForm  {
                 We are so sorry to hear you cannot join us on our special day, but we do appreciate you letting us know!
             </p>
         </div>
-
-        
-
-             
-    <?php }
-
-    
+ 
+    <?php }  
 
 }
 

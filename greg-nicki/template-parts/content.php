@@ -13,7 +13,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<h3><?php the_field('vendor_category') ?></h3>
+		<h3><?php the_field('vendor_category') ?>
+			<?php
+				if ( single_cat_title('', false) == "Gift Registry" )  {
+					echo the_field('sold_in_usa');
+				}
+			?>
+		</h3>
+		
+		
+
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -22,9 +31,22 @@
 		endif;
 		?>
 
+		<?php
+			$display = null;
+
+			if ( single_cat_title('', false) == "Vendors" )  {
+				$display = 'show';
+			}
+		?>
 		<a href="<?php the_field('vendor_website') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_website') ?></a>
 		<br>
 		<i class="fab fa-instagram-square"></i>@<a href="https://www.instagram.com/<?php the_field('vendor_insta') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_insta') ?></a>
+
+		<?php
+			if ( single_cat_title('', false) == "Gift Registry" )  {
+				echo the_field('sold_in_stores');
+			}
+		?>
 
 	<?php greg_nicki_post_thumbnail(); ?>
 

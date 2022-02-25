@@ -20,8 +20,9 @@ get_header();
 				<!-- <?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
+				
 				?> -->
-				<h1>Vendors</h1>
+				<h1><?php single_cat_title(); ?></h1>
 			</div><!-- .page-header -->
 
 			<div class="wedding-posts">

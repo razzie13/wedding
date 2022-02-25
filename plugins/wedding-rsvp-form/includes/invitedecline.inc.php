@@ -7,7 +7,6 @@ global $wpdb;
 // VARIABLES
 
 $postal_code = $_POST['decline-postal-code'];
-// $searched_postcode = $_POST['decline-postal-code'];
 
 $wpdb->update(
         'invite_responses', 
@@ -20,4 +19,6 @@ $wpdb->update(
         )
 );
 
-header("Location: http://gregandnicki.com/rsvp?reply=success");
+var_dump($_POST);
+
+//header("Location: http://gregandnicki.com/rsvp?reply=success");
