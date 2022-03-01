@@ -19,6 +19,11 @@
   src: url(fonts/CarolinaMountains/CarolinaMountains.ttf);
 }
 
+@font-face {
+  font-family: Alex Brush;
+  src: url(fonts/AlexBrush/AlexBrush-Regular.ttf);
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -65,6 +70,7 @@ header {
 @media screen and (min-width: 1025px) {
   header {
     height: 5rem;
+    padding-top: 1rem;
   }
 }
 
@@ -87,7 +93,7 @@ header {
 }
 
 header .site-title {
-  font-family: "Carolina Mountains";
+  font-family: "Alex Brush";
 }
 
 @media screen and (max-width: 1024px) {
@@ -139,7 +145,7 @@ header nav {
 header nav #nav-left {
   margin-left: 3.5rem;
   font-size: 2.75rem;
-  font-family: "Carolina Mountains";
+  font-family: "Alex Brush";
   font-weight: bold;
 }
 
@@ -173,7 +179,7 @@ header nav #nav-right ul li a:hover {
 }
 
 h1 {
-  font-family: "Carolina Mountains";
+  font-family: "Alex Brush";
 }
 
 #name {
@@ -183,7 +189,7 @@ h1 {
   text-shadow: 0 0 25px black;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-family: "Carolina Mountains";
+  font-family: "Alex Brush";
   font-weight: bold;
   width: 100%;
 }

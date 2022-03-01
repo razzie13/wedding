@@ -8,7 +8,7 @@ $max_tablet_width: 1024px;
 
 $max_mobile_width: 480px;
 
-$display_font: 'Carolina Mountains';
+$display_font: 'Alex Brush';
 $body_font: 'Nunito Sans';
 
 @font-face {
@@ -30,6 +30,11 @@ $body_font: 'Nunito Sans';
 @font-face {
     font-family: Carolina Mountains;
     src: url(fonts/CarolinaMountains/CarolinaMountains.ttf);
+}
+
+@font-face {
+    font-family: Alex Brush;
+    src: url(fonts/AlexBrush/AlexBrush-Regular.ttf);
 }
 
 body  {
@@ -72,7 +77,7 @@ header  {
     
     @media screen and (min-width: $min_desktop_width) {
         height: 5rem;
-        
+        padding-top: 1rem;
     }
 
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width)  {
