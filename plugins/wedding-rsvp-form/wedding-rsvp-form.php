@@ -10,10 +10,7 @@
  * 
  */
 
-require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' );
-
-// WORDPRESS GLOBAL
-global $wpdb;
+include_once 'includes/dbc.inc.php';
 
 // DECLARE ALL VARIABLES
 $postal_code = null;
@@ -28,21 +25,31 @@ $searched_postcode = null;
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $searched_postcode = $_POST['postcode'];
-}
 
-// QUERY MYSQL DATABASE
-$query = "SELECT * FROM invite_responses WHERE Postal_Code = '{$searched_postcode}'";
-$result = $wpdb->get_row($query);
+    //Postal_Code, guest_one_name, guest_two_name, guest_three_name, guest_four_name, email_address_one, email_address_two
+    
+            $sql = "SELECT *
+                    FROM rsvp_responses 
+                    WHERE Postal_Code = '{$searched_postcode}'";         
+            $result = mysqli_query($conn, $sql);
+            //$result = mysqli_fetch_array($sql, MYSQLI_ASSOC);
+            $result_check = mysqli_num_rows($result);
 
-// SET VARIABLES WITH DATA FROM MYSQL IF QUERY IS SUCCESSFUL 
-if($result)  {
-    $postal_code = $result->Postal_Code;
-    $guest_one_name = $result->guest_one_name;
-    $guest_two_name = $result->guest_two_name;
-    $guest_three_name = $result->guest_three_name;
-    $guest_four_name = $result->guest_four_name;
-    $email_address_one = $result->email_address_one;
-    $email_address_two = $result->email_address_two;
+            $row = mysqli_fetch_row($result);
+
+            $postal_code = $row[0];
+            $guest_one_name = $row[3];
+            $guest_one_coming = $row[4];
+            $guest_two_name = $row[5];
+            $guest_two_coming = $row[6];
+            $guest_three_name = $row[7];
+            $guest_three_coming = $row[8];
+            $guest_four_name = $row[9];
+            $guest_four_coming = $row[10];
+            $email_address_one = $row[11];
+            $email_address_two = $row[12];
+            $user_comments = $row[13];
+           
 }
 
 
@@ -109,9 +116,13 @@ class WeddingRsvpForm  {
         // IMPORT VARIABLES
         global $postal_code;
         global $guest_one_name;
+        global $guest_one_coming;
         global $guest_two_name;
+        global $guest_two_coming;
         global $guest_three_name;
+        global $guest_three_coming;
         global $guest_four_name;
+        global $guest_four_coming;
         global $email_address_one;
         global $email_address_two;
         global $result;
@@ -119,16 +130,13 @@ class WeddingRsvpForm  {
         $guest_array = array($guest_two_name, $guest_three_name, $guest_four_name);
         
         // $security_codes = array('th','ho','of','yo','pr','is','re','at','th','ma');
-
-
-        ?>
-        <h2>We're so excited to hear from you!</h2>
-        <h5 id="post-code-confirm" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">You have entered <? if (strlen($postal_code) < 6) {echo 'Zip Code';} else {echo 'Postal Code';} ?> <?php echo $postal_code; ?></h5>
-        <h5 class="<? if($result == null) {echo 'hide';} else {echo 'show';} ?>"><?php if ($postal_code == $result)  {'Sorry, It appears nobody at your address has been invited.';}  ?></h5>
-        <br>
-
         
 
+        ?>
+        <h2>We're so excited to hear from you! <?php echo $postal_code ?></h2>
+        <h5 id="post-code-confirm" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">You have entered <? if (strlen($postal_code) < 6) {echo 'Zip Code';} else {echo 'Postal Code';} ?> <?php foreach($result as $row):?><?= $row['Postal_Code'] ?><?php endforeach ?></h5>
+        <h5 class="<? if($result == null) {echo 'hide';} else {echo 'show';} ?>"><?php if ($postal_code == $result)  {'Sorry, It appears nobody at your address has been invited.';}  ?></h5>
+        <br>          
 
         <form method="post" action="">
 
@@ -183,7 +191,7 @@ class WeddingRsvpForm  {
                 
                 <label for='first-guest'>Guest</label><br>
                 <div class="guest-name">
-                    <input type="text" id="first-guest" name='first-guest' value="<?php echo $guest_one_name; ?>" ><br>
+                    <input type="text" id="first-guest" name='first-guest' value="<?php foreach($result as $row):?><?= $row['guest_one_name'] ?><?php endforeach ?>" ><br>
                     <label for='first-guest-attending' class="<?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>">Attending? </label><br>
                     <input type="checkbox" id="first-guest-attending" name='first-guest-attending' class="<?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>" checked>
                 </div>
@@ -230,7 +238,7 @@ class WeddingRsvpForm  {
                 <h5>Please let us know here if you have any dietary requirements or allergies.</h5>
                 <textarea name='user-comments'></textarea>
 
-                <input type="submit" value="Click Here to Send Us Your RSVP"></input>
+                <input type="submit" name="accept-invite" value="Click Here to Send Us Your RSVP"></input>
 
             </div>
 
@@ -247,7 +255,7 @@ class WeddingRsvpForm  {
                 <input type="checkbox" value="true" hidden></input>
                 <input type="text" name="decline-postal-code" value="<?php echo $postal_code; ?>" hidden>
                 <input type="text" name="postcode" value="<?php echo $postal_code; ?>" hidden>
-                <input type="submit" value="Click Here to Decline your Invitation"></input>
+                <input type="submit" name="decline-invite" value="Click Here to Decline your Invitation"></input>
             </form>
         </div>
 
@@ -260,5 +268,7 @@ class WeddingRsvpForm  {
     <?php }  
 
 }
+
+
 
 new WeddingRsvpForm;

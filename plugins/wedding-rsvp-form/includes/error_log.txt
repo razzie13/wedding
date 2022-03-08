@@ -109,3 +109,4 @@
                         WHERE Postal_Code = N2N 1C5
                         
                  made by W3TC\DbCache_WpdbNew->query, W3TC\DbCache_WpdbInjection_QueryCaching->query, W3TC\_CallUnderlying->query, W3TC\DbCache_WpdbNew->query, W3TC\DbCache_WpdbInjection->query, W3TC\DbCache_WpdbNew->default_query
+[28-Feb-2022 23:49:34 America/New_York] PHP Parse error:  syntax error, unexpected ')', expecting end of file in /home/gregbvox/public_html/wedding/wp-content/plugins/wedding-rsvp-form/includes/inviteaccept.inc.php on line 60
