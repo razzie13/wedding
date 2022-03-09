@@ -14,6 +14,7 @@ include_once 'includes/dbc.inc.php';
 
 // DECLARE ALL VARIABLES
 $postal_code = null;
+$logged_in_once = null;
 $guest_one_name = null;
 $guest_two_name = null;
 $guest_three_name = null;
@@ -38,6 +39,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             $row = mysqli_fetch_row($result);
 
             $postal_code = $row[0];
+            $logged_in_once = $row[1];
             $guest_one_name = $row[3];
             $guest_one_coming = $row[4];
             $guest_two_name = $row[5];
@@ -133,10 +135,20 @@ class WeddingRsvpForm  {
         
 
         ?>
-        <h2>We're so excited to hear from you! <?php echo $postal_code ?></h2>
+
+        <!-- <?php if($_GET['reply']=='success'){
+        echo '<p>Thank you for your RSVP. We are thrilled you can make it!</p>';
+        }else if($_GET['reply']=='decline'){
+        echo '<p>Thank you for your RSVP. We are saddened you cannot make it to our event.</p>';
+        } ?> -->
+
+
+        <h2>We're so excited to hear from you!</h2>
         <h5 id="post-code-confirm" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">You have entered <? if (strlen($postal_code) < 6) {echo 'Zip Code';} else {echo 'Postal Code';} ?> <?php foreach($result as $row):?><?= $row['Postal_Code'] ?><?php endforeach ?></h5>
         <h5 class="<? if($result == null) {echo 'hide';} else {echo 'show';} ?>"><?php if ($postal_code == $result)  {'Sorry, It appears nobody at your address has been invited.';}  ?></h5>
-        <br>          
+        <br>        
+        
+        
 
         <form method="post" action="">
 
@@ -193,32 +205,29 @@ class WeddingRsvpForm  {
                 <div class="guest-name">
                     <input type="text" id="first-guest" name='first-guest' value="<?php foreach($result as $row):?><?= $row['guest_one_name'] ?><?php endforeach ?>" ><br>
                     <label for='first-guest-attending' class="<?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>">Attending? </label><br>
-                    <input type="checkbox" id="first-guest-attending" name='first-guest-attending' class="<?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>" checked>
+                    <input type="checkbox" id="first-guest-attending" name='first-guest-attending' class="<?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>" value='TRUE' checked>
                 </div>
-                <?php if ($guest_two_name != null)  {
-                    echo "<label for='second-guest'>Guest</label><br>";
-                    echo "<div class='guest-name'>";
-                    echo "<input type='text' id='second-guest' name='second-guest' value='{$guest_two_name}'><br>";
-                    echo "<label for='second-guest-attending'>Attending? </label><br>";
-                    echo "<input type='checkbox' id='second-guest-attending' name='second-guest-attending' value='' checked>";
-                    echo "</div>";
-                } ?>
-                <?php if ($guest_three_name != null)  {
-                    echo "<label for='third-guest'>Guest</label><br>";
-                    echo "<div class='guest-name'>";
-                    echo "<input type='text' id='third-guest' name='third-guest' value='{$guest_three_name}'><br>";
-                    echo "<label for='third-guest-attending'>Attending? </label><br>";
-                    echo "<input type='checkbox' id='third-guest-attending' name='third-guest-attending' value='' checked>";
-                    echo "</div>";
-                } ?>
-                <?php if ($guest_four_name != null)  {
-                    echo "<label for='fourth-guest'>Guest</label><br>";
-                    echo "<div class='guest-name'>";
-                    echo "<input type='text' id='fourth-guest' name='fourth-guest' value='{$guest_four_name}'><br>";
-                    echo "<label for='fourth-guest-attending'>Attending? </label><br>";
-                    echo "<input type='checkbox' id='fourth-guest-attending' name='fourth-guest-attending' checked>";
-                    echo "</div>";
-                } ?>
+
+                    <label for='second-guest' class='<?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>'>Guest</label>
+                    <div class='guest-name <?php if ($guest_two_name != null) {echo 'show';} else {echo 'hide';} ?>'>
+                    <input type='text' id='second-guest' name='second-guest' value='<?php echo $guest_two_name ?>'><br>
+                    <label for='second-guest-attending'>Attending? </label><br>
+                    <input type='checkbox' id='second-guest-attending' name='second-guest-attending' value='TRUE' <?php if ($guest_two_name != null) {echo 'checked';} else {echo '';} ?>>
+                    </div>
+
+                    <label for='third-guest' class='<?php if ($guest_three_name != null) {echo 'show';} else {echo 'hide';} ?>'>Guest</label>
+                    <div class='guest-name <?php if ($guest_three_name != null) {echo 'show';} else {echo 'hide';} ?>'>
+                    <input type='text' id='third-guest' name='third-guest' value='<?php echo $guest_three_name ?>'><br>
+                    <label for='third-guest-attending'>Attending? </label><br>
+                    <input type='checkbox' id='third-guest-attending' name='third-guest-attending' value='TRUE' <?php if ($guest_three_name != null) {echo 'checked';} else {echo '';} ?>>
+                    </div>
+
+                    <label for='fourth-guest' class='<?php if ($guest_four_name != null) {echo 'show';} else {echo 'hide';} ?>'>Guest</label>
+                    <div class='guest-name <?php if ($guest_four_name != null) {echo 'show';} else {echo 'hide';} ?>'>
+                    <input type='text' id='fourth-guest' name='fourth-guest' value='<?php echo $guest_four_name ?>'><br>
+                    <label for='fourth-guest-attending'>Attending? </label><br>
+                    <input type='checkbox' id='fourth-guest-attending' name='fourth-guest-attending' value='TRUE' <?php if ($guest_four_name != null) {echo 'checked';} else {echo '';} ?>>
+                    </div>
             
                 <h3>Enter your Email Address so we can send you updates</h3>
                 <h4 class="header-four-rsvp">Don't worry - we won't spam you!</h4>
@@ -238,7 +247,7 @@ class WeddingRsvpForm  {
                 <h5>Please let us know here if you have any dietary requirements or allergies.</h5>
                 <textarea name='user-comments'></textarea>
 
-                <input type="submit" name="accept-invite" value="Click Here to Send Us Your RSVP"></input>
+                <input type="submit" name="accept-invite" value="Send RSVP"></input>
 
             </div>
 
