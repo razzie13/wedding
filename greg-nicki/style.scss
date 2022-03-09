@@ -409,7 +409,23 @@ main  {
             margin-left: 3rem;
         }
     }
+
+    a  {
+        color: black;
+
+        &:visited  {
+            color: black;
+        }
+
+        &:hover  {
+            text-decoration: none;
+        }
+    }
     
+}
+
+.flex-column  {
+    flex-direction: column !important;
 }
 
 
@@ -435,7 +451,7 @@ footer  {
 
     @media screen and (min-width: $min_desktop_width) {
         margin: -7rem auto;
-        margin-left: calc(((100% - 1360px) / 2) + 29.5rem);
+        margin-left: calc(((100% - 1360px) / 2) + 23rem);
     }
 
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width)  {

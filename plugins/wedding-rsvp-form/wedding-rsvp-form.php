@@ -117,6 +117,7 @@ class WeddingRsvpForm  {
     {
         // IMPORT VARIABLES
         global $postal_code;
+        global $logged_in_once;
         global $guest_one_name;
         global $guest_one_coming;
         global $guest_two_name;
@@ -148,6 +149,9 @@ class WeddingRsvpForm  {
         <h5 class="<? if($result == null) {echo 'hide';} else {echo 'show';} ?>"><?php if ($postal_code == $result)  {'Sorry, It appears nobody at your address has been invited.';}  ?></h5>
         <br>        
         
+        <p class='<?php if($logged_in_once == TRUE) {echo 'show';} else {echo 'hide';} ?>'>We have already recieved a response from this address. Thank you!</p>
+
+        <p class='<?php if($logged_in_once == TRUE) {echo 'show';} else {echo 'hide';} ?>'>You cannot edit details once your RSVP has been submitted, but if things change, please reach out to the bride or groom.</p>
         
 
         <form method="post" action="">
@@ -247,7 +251,7 @@ class WeddingRsvpForm  {
                 <h5>Please let us know here if you have any dietary requirements or allergies.</h5>
                 <textarea name='user-comments'></textarea>
 
-                <input type="submit" name="accept-invite" value="Send RSVP"></input>
+                <input type="submit" name="accept-invite" value="Send RSVP" <?php if($logged_in_once == TRUE) {echo 'disabled';} else {echo '';} ?>></input>
 
             </div>
 

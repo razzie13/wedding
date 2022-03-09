@@ -17,9 +17,9 @@ get_header();
 
 <!-- start page.php -->
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main page-content">
 
-	<h1 class="page-entry-title">RSVP</h1>'
+	<h1 class="page-entry-title">RSVP</h1>
 
 		<?php if($_GET['reply']=='success'){
         echo '<p>Thank you for your RSVP. We are thrilled you can make it!</p>';

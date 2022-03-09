@@ -54,6 +54,11 @@ input[type="submit"], input[type="button"], input[type="reset"]  {
     margin-right: 2rem
 }
 
+input[type="submit"]:disabled {
+    background: grey;
+    color: white;
+  }
+
 input[type="text"], input[type="email"]  {
     background-color: #f8f8f8;
     border-style: solid;

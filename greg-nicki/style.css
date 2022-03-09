@@ -426,6 +426,25 @@ h1 {
   }
 }
 
+.page-content a {
+  color: black;
+}
+
+.page-content a:visited {
+  color: black;
+}
+
+.page-content a:hover {
+  text-decoration: none;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: column !important;
+          flex-direction: column !important;
+}
+
 footer .site-info {
   text-align: center;
   font-size: 0.5rem;
@@ -445,7 +464,7 @@ footer .site-info {
 @media screen and (min-width: 1025px) {
   .main-navigation {
     margin: -7rem auto;
-    margin-left: calc(((100% - 1360px) / 2) + 29.5rem);
+    margin-left: calc(((100% - 1360px) / 2) + 23rem);
   }
 }
 
