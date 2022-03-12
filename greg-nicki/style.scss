@@ -11,6 +11,8 @@ $max_mobile_width: 480px;
 $display_font: 'Alex Brush';
 $body_font: 'Nunito Sans';
 
+$tile_width: 300px;
+
 @font-face {
   font-family: Honeymoon;
   src: url(fonts/Honeymoon/Honeymoon_PERSONAL.ttf);
@@ -285,7 +287,31 @@ main  {
     }
 }
 
+.gift-registry-item  {
 
+    @media screen and (max-width: $max_mobile_width) {
+        width: $tile_width;
+        margin: auto;
+    }
+
+    .gift-retailer  {
+        font-size: 2.5rem;
+        font-family: $body_font;
+
+        i  {
+            font-weight: 900;
+            font-size: 1rem;
+            margin-left: 1rem;
+            color: white;
+            border-style: none;
+            background-color: teal;
+            padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+            border-radius: 1rem;
+            box-sizing: border-box;
+        }
+    }
+
+}
 
 
 
@@ -311,12 +337,84 @@ main  {
         justify-content: space-around;
     }
 
+    ul  {
 
+        overflow-wrap: break-word;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
 
-    article {
+        @media screen and (max-width: $max_mobile_width) {
+            flex-direction: column;
+            justify-content: space-around;
+            margin-left: -2.5rem;
+        }
 
-        width: 300px;
-        height: 300px;
+        li  {
+
+            width: $tile_width;
+            height: $tile_width;
+            padding: 1rem;
+            box-sizing: border-box;
+            background-color: lightgray;
+            color: black;
+            margin: 1rem auto;
+            border-style: none;
+            border-radius: 0.8rem;
+            list-style-type: none;
+            margin-top: 0;
+            text-align: center;
+            line-height: calc(300px - 1rem);
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+
+            @media screen and (max-width: $max_mobile_width) {
+                line-height: calc((#{$tile_width} / 2) - 1rem);
+                height: calc(#{$tile_width} / 2);
+            }
+
+                &:hover  {
+                    background-color: teal;
+                    color: white;
+                    text-decoration: underline;
+                    
+                    a  {
+                        color: white;
+                        
+                    }
+                }
+            
+                a  {
+                    text-decoration: none;
+                    color: black;
+
+                }
+
+            }
+
+            h3  {
+                margin-bottom: 0;
+                margin-top: 0;
+                text-transform: uppercase;
+                font-size: 1rem;
+            }
+
+            a  {
+                text-decoration: none;
+                color: black;
+            }
+
+            i  {
+                margin-right: 0.25rem;
+                color: red;
+            }
+        }
+
+    article  {
+
+        width: $tile_width;
+        height: $tile_width;
         padding: 1rem;
         box-sizing: border-box;
         background-color: lightgray;
@@ -363,11 +461,15 @@ main  {
 }
 
 .page-header h1, .page-entry-title  {
+
+    text-transform: capitalize;
+    
     @media screen and (max-width: $max_tablet_width) {
         text-align: center;
         font-size: 4rem;
         margin-bottom: -1rem;
         margin-top: 2rem;
+        
     }
 
     @media screen and (min-width: $min_desktop_width) {
@@ -428,7 +530,29 @@ main  {
     flex-direction: column !important;
 }
 
+.nav-links  {
+    display: flex;
+    justify-content: space-between;
+    width: 1360px;
+    margin: auto;
+    padding-left: 460px;
+    box-sizing: border-box;
 
+    a {
+        background-color: teal;
+        padding: 2rem;
+        color: white;
+        border-style: none;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+
+        i  {
+            font-weight: 900;
+            margin-right: 0.5rem;
+        }
+    }
+}
 
 footer  {
 
