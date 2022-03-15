@@ -286,6 +286,15 @@ h1 {
   }
 }
 
+figcaption {
+  margin-top: 0.5em;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  background-color: lightgray;
+  padding: 0.5rem 1rem;
+  margin-top: 0;
+}
+
 @media screen and (max-width: 480px) {
   .gift-registry-item {
     width: 300px;
@@ -352,7 +361,7 @@ h1 {
   }
 }
 
-.wedding-posts ul {
+.wedding-posts ul.gift-registry-category-tiles {
   overflow-wrap: break-word;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -365,7 +374,7 @@ h1 {
 }
 
 @media screen and (max-width: 480px) {
-  .wedding-posts ul {
+  .wedding-posts ul.gift-registry-category-tiles {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -376,7 +385,7 @@ h1 {
   }
 }
 
-.wedding-posts ul li {
+.wedding-posts ul.gift-registry-category-tiles li {
   width: 300px;
   height: 300px;
   padding: 1rem;
@@ -397,40 +406,40 @@ h1 {
 }
 
 @media screen and (max-width: 480px) {
-  .wedding-posts ul li {
+  .wedding-posts ul.gift-registry-category-tiles li {
     line-height: calc((300px / 2) - 1rem);
     height: calc(300px / 2);
   }
 }
 
-.wedding-posts ul li:hover {
+.wedding-posts ul.gift-registry-category-tiles li:hover {
   background-color: teal;
   color: white;
   text-decoration: underline;
 }
 
-.wedding-posts ul li:hover a {
+.wedding-posts ul.gift-registry-category-tiles li:hover a {
   color: white;
 }
 
-.wedding-posts ul li a {
+.wedding-posts ul.gift-registry-category-tiles li a {
   text-decoration: none;
   color: black;
 }
 
-.wedding-posts ul h3 {
+.wedding-posts ul.gift-registry-category-tiles h3 {
   margin-bottom: 0;
   margin-top: 0;
   text-transform: uppercase;
   font-size: 1rem;
 }
 
-.wedding-posts ul a {
+.wedding-posts ul.gift-registry-category-tiles a {
   text-decoration: none;
   color: black;
 }
 
-.wedding-posts ul i {
+.wedding-posts ul.gift-registry-category-tiles i {
   margin-right: 0.25rem;
   color: red;
 }
@@ -445,6 +454,7 @@ h1 {
   margin: 1rem auto;
   border-style: none;
   border-radius: 0.8rem;
+  position: relative;
 }
 
 .wedding-posts article h2 {
@@ -472,6 +482,26 @@ h1 {
 .wedding-posts article i {
   margin-right: 0.25rem;
   color: red;
+}
+
+.wedding-posts article ul.gift-registry-tile-links {
+  list-style-type: none;
+  margin-left: -2.5rem;
+  line-height: 1.5rem;
+  position: absolute;
+  bottom: 0;
+}
+
+.wedding-posts article ul.gift-registry-tile-links li a {
+  text-decoration: underline;
+}
+
+.wedding-posts article ul.gift-registry-tile-links li a:hover {
+  text-decoration: none;
+}
+
+.wedding-posts article ul.gift-registry-tile-links li i {
+  margin-left: 0.5rem;
 }
 
 @media screen and (min-width: 1025px) {

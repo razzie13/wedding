@@ -40,7 +40,13 @@
 		?>
 		<a href="<?php the_field('vendor_website') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_website') ?></a>
 		<br>
-		<i class="fab fa-instagram-square"></i>@<a href="https://www.instagram.com/<?php the_field('vendor_insta') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_insta') ?></a>
+		<ul class="gift-registry-tile-links">
+			<li><a href="<?php the_field('exterior_link')?>" target="_blank" rel="noopener noreferrer">Product Link</a><i class="fas fa-external-link-alt"></i></li>
+			<li>Product ID: <?php the_field('product_id') ?></li>
+			<li>Number Requested: <?php the_field('number_requested') ?></li>
+			<li>Sold In Stores: <?php the_field('sold_in_stores') ?></li>
+			<li><strong>Mark Item as Purchased</strong></li>
+		</ul>
 
 		<?php
 			if ( single_cat_title('', false) == "Gift Registry" )  {

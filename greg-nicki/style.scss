@@ -13,6 +13,8 @@ $body_font: 'Nunito Sans';
 
 $tile_width: 300px;
 
+$link_colour: teal;
+
 @font-face {
   font-family: Honeymoon;
   src: url(fonts/Honeymoon/Honeymoon_PERSONAL.ttf);
@@ -287,6 +289,15 @@ main  {
     }
 }
 
+figcaption  {
+    margin-top: 0.5em;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    background-color: lightgray;
+    padding: 0.5rem 1rem;
+    margin-top: 0;
+}
+
 .gift-registry-item  {
 
     @media screen and (max-width: $max_mobile_width) {
@@ -337,7 +348,7 @@ main  {
         justify-content: space-around;
     }
 
-    ul  {
+    ul.gift-registry-category-tiles  {
 
         overflow-wrap: break-word;
         display: flex;
@@ -421,6 +432,7 @@ main  {
         margin: 1rem auto;
         border-style: none;
         border-radius: 0.8rem;
+        position: relative;
     
         h2  {
     
@@ -449,6 +461,28 @@ main  {
         i  {
             margin-right: 0.25rem;
             color: red;
+        }
+
+        ul.gift-registry-tile-links  {
+            list-style-type: none;
+            margin-left: -2.5rem;
+            line-height: 1.5rem;
+            position: absolute;
+            bottom: 0;
+
+            li  {
+                a  {
+                    text-decoration: underline;
+
+                    &:hover  {
+                        text-decoration: none;
+                    }
+                }
+
+                i  {
+                    margin-left: 0.5rem;
+                }
+            }
         }
     
     }

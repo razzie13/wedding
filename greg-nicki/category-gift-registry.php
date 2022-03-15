@@ -42,7 +42,7 @@ get_header();
                 "&echo=0");
                 if ($this_category) { ?> 
             
-            <ul>
+            <ul class="gift-registry-category-tiles">
             <?php echo $this_category; ?>
             
             </ul>

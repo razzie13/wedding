@@ -35,12 +35,12 @@ get_header();
     <?php 
             
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle"><i class="fas fa-lightbulb"></i>' . esc_html__( 'Idea:', 'greg-nicki' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle"><i class="fas fa-lightbulb"></i>' . esc_html__( 'Idea:', 'greg-nicki' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+			// the_post_navigation(
+			// 	array(
+			// 		'prev_text' => '<span class="nav-subtitle"><i class="fas fa-lightbulb"></i>' . esc_html__( 'Idea:', 'greg-nicki' ) . '</span> <span class="nav-title">%title</span>',
+			// 		'next_text' => '<span class="nav-subtitle"><i class="fas fa-lightbulb"></i>' . esc_html__( 'Idea:', 'greg-nicki' ) . '</span> <span class="nav-title">%title</span>',
+			// 	)
+			// );
     
     // If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :

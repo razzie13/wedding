@@ -13,7 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+</head>
 <body>
     <header>
 
