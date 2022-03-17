@@ -504,6 +504,31 @@ figcaption {
   margin-left: 0.5rem;
 }
 
+#comments {
+  width: 1360px;
+  margin: auto;
+  padding-left: calc(460px + 2rem);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#respond {
+  display: none;
+}
+
+#respond:not(#submit) {
+  display: block;
+}
+
+#content-gift-registry-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.gift-registry-margin {
+  margin-left: 2rem;
+}
+
 @media screen and (min-width: 1025px) {
   .page-header {
     width: 400px;

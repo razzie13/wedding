@@ -42,10 +42,16 @@
 		<br>
 		<ul class="gift-registry-tile-links">
 			<li><a href="<?php the_field('exterior_link')?>" target="_blank" rel="noopener noreferrer">Product Link</a><i class="fas fa-external-link-alt"></i></li>
-			<li>Product ID: <?php the_field('product_id') ?></li>
-			<li>Number Requested: <?php the_field('number_requested') ?></li>
-			<li>Sold In Stores: <?php the_field('sold_in_stores') ?></li>
-			<li><strong>Mark Item as Purchased</strong></li>
+			
+			<?php
+			if ( single_cat_title('', false) != "More" )  {
+				echo '<li>Store Product ID: ' , the_field('product_id') , '</li>';
+				echo '<li>Number Requested: ' , the_field('number_requested') , '</li>';
+				echo '<li>Sold In Stores: ' , the_field('sold_in_stores') , '</li>';
+				echo '<li><strong><a href="' . get_permalink() . '" rel="bookmark">Mark Item as Purchased</a></strong></li>';
+				
+			}
+		?>
 		</ul>
 
 		<?php

@@ -15,7 +15,19 @@
 
 		<?php
 		if ( is_singular() ) :
-			the_title( '<p>', '</p>' );
+			$greg_nicki_comment_count = get_comments_number();
+			if ( '1' === $greg_nicki_comment_count ) {
+				echo '';
+			} else  {
+				echo '<p class="gift-registry-margin">This is to confirm you are purchasing the following gift, and removing it from available items in the registry:</p>';
+			}
+			the_title( '<p class="gift-registry-margin" id="content-gift-registry-name">', '</p>');
+			$greg_nicki_comment_count = get_comments_number();
+			if ( '1' === $greg_nicki_comment_count ) {
+				echo '';
+			} else  {
+				echo '<p class="gift-registry-margin">Click the "Gift Purchased" button to finish.</p>';
+			}
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
@@ -30,7 +42,7 @@
 		?>
 		<a href="<?php the_field('vendor_website') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_website') ?></a>
 		<br>
-		<i class="fab fa-instagram-square"></i>@<a href="https://www.instagram.com/<?php the_field('vendor_insta') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_insta') ?></a>
+
 
 		<?php
 			if ( single_cat_title('', false) == "Gift Registry" )  {

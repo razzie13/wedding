@@ -11,6 +11,8 @@ $max_mobile_width: 480px;
 $display_font: 'Alex Brush';
 $body_font: 'Nunito Sans';
 
+$desktop_main_width: 1360px;
+
 $tile_width: 300px;
 
 $link_colour: teal;
@@ -109,7 +111,7 @@ header  {
 
         @media screen and (min-width: $min_desktop_width) {
             text-align: left;
-            max-width: 1360px;
+            max-width: $desktop_main_width;
             margin: auto;
         }
 
@@ -277,7 +279,7 @@ h1  {
 main  {
     @media screen and (min-width: $min_desktop_width) {
         display: flex;
-        max-width: 1360px;
+        max-width: $desktop_main_width;
         margin: auto;
         margin-top: 6rem;
     }
@@ -484,8 +486,37 @@ figcaption  {
                 }
             }
         }
+
+        
     
     }
+}
+
+#comments  {
+    width: $desktop_main_width;
+    margin: auto;
+    padding-left: calc(460px + 2rem);
+    box-sizing: border-box;
+
+    
+}
+
+#respond  {
+
+    display: none;
+    
+    &:not(#submit)  {
+        display: block;
+    }
+}
+
+#content-gift-registry-name  {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.gift-registry-margin {
+    margin-left: 2rem;
 }
 
 .page-header  {
@@ -567,7 +598,7 @@ figcaption  {
 .nav-links  {
     display: flex;
     justify-content: space-between;
-    width: 1360px;
+    width: $desktop_main_width;
     margin: auto;
     padding-left: 460px;
     box-sizing: border-box;
