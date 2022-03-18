@@ -371,6 +371,8 @@ figcaption {
       -ms-flex-direction: row;
           flex-direction: row;
   gap: 0.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 @media screen and (max-width: 480px) {
@@ -502,6 +504,14 @@ figcaption {
 
 .wedding-posts article ul.gift-registry-tile-links li i {
   margin-left: 0.5rem;
+}
+
+.wedding-posts .item-purchased {
+  background-color: #6e6e6e !important;
+}
+
+.wedding-posts .item-purchased strong {
+  color: white;
 }
 
 #comments {

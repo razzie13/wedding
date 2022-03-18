@@ -53,7 +53,7 @@ get_header();
 			/* Start the Loop */
 
 
-			the_posts_navigation();
+			// the_posts_navigation();
 
 		else :
 

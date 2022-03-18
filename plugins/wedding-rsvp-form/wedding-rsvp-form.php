@@ -191,7 +191,7 @@ class WeddingRsvpForm  {
                 <input type="radio" id="rsvp-yes" name="rsvp-yes" value="YES" onchange="guestsAreComing()">
                 <label for="rsvp-yes">Save <?php if ($guest_two_name != null)  {echo 'us ';} else {echo 'Me ';}  ?>a Spot!</label><br>
                 <input type="radio" id="rsvp-no" name="rsvp-no" value="NO" onchange="guestsAreNotComing()">
-                <label for="rsvp-no">Sadly, <?php if ($guest_two_name != null)  {echo 'We';} else {echo 'I';} ?> Cannot Attend.</label><br><br>
+                <label for="rsvp-no"><span class="hide-on-mobile">Sadly, </span><?php if ($guest_two_name != null)  {echo 'We';} else {echo 'I';} ?> Cannot Attend.</label><br><br>
 
             </div>
 

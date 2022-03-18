@@ -9,9 +9,17 @@
 
 ?>
 
+<?php $item_purchased = null; ?>
+
+<?php 
+if ( '1' === get_comments_number() ) {
+	$item_purchased = 'item-purchased';
+}
+?>
+
 <!-- start content.php -->
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class($item_purchased); ?>>
 
 		<h3><?php the_field('vendor_category') ?>
 			<?php
@@ -27,7 +35,7 @@
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title">', '</h2>' );
 		endif;
 		?>
 
@@ -41,15 +49,18 @@
 		<a href="<?php the_field('vendor_website') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_website') ?></a>
 		<br>
 		<ul class="gift-registry-tile-links">
-			<li><a href="<?php the_field('exterior_link')?>" target="_blank" rel="noopener noreferrer">Product Link</a><i class="fas fa-external-link-alt"></i></li>
+			<li><a href="<?php the_field('exterior_link')?>" target="_blank" rel="noopener noreferrer"><strong>Product Link</strong></a><i class="fas fa-external-link-alt"></i></li>
 			
 			<?php
-			if ( single_cat_title('', false) != "More" )  {
+			if (single_cat_title('', false) != "More" ) {
 				echo '<li>Store Product ID: ' , the_field('product_id') , '</li>';
 				echo '<li>Number Requested: ' , the_field('number_requested') , '</li>';
 				echo '<li>Sold In Stores: ' , the_field('sold_in_stores') , '</li>';
-				echo '<li><strong><a href="' . get_permalink() . '" rel="bookmark">Mark Item as Purchased</a></strong></li>';
-				
+				if ( '1' === get_comments_number() ) {
+					echo '<li><strong>Item Has Been Purchased</strong></li>';
+				} else  {
+					echo '<li><strong><a href="' . get_permalink() . '" rel="bookmark">Mark Item as Purchased</a></strong></li>';
+				}			
 			}
 		?>
 		</ul>

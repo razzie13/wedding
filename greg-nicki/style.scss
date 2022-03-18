@@ -356,6 +356,7 @@ figcaption  {
         display: flex;
         flex-direction: row;
         gap: 0.5rem;
+        flex-wrap: wrap;
 
         @media screen and (max-width: $max_mobile_width) {
             flex-direction: column;
@@ -489,6 +490,14 @@ figcaption  {
 
         
     
+    }
+
+    .item-purchased {
+        background-color: rgb(110, 110, 110) !important;
+
+        strong  {
+            color: white;
+        }
     }
 }
 

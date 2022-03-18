@@ -1,6 +1,15 @@
+@media screen and (max-width: 481px) {
+    .hide-on-mobile  {
+        display: none !important;
+    }
+}
+
+
 .hide  {
     display: none !important;
 }
+
+
 
 .show  {
     display: block;
@@ -15,6 +24,27 @@
     flex-direction: row;
 
     
+}
+
+@media screen and (max-width: 481px) {
+    .guest-name  {
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
+    .guest-name label {
+        margin-left: 0 !important;
+        margin-right: 1rem;
+        margin-top: -2rem;
+    }
+
+    .guest-name input[type='checkbox'] {
+        margin-top: -4rem;
+        margin-left: 10rem;
+
+        width: 30px;
+        height: 30px;
+    }
 }
 
 .guest-name label {
@@ -54,6 +84,12 @@ input[type="submit"], input[type="button"], input[type="reset"]  {
     margin-right: 2rem
 }
 
+@media screen and (max-width: 481px) {
+    input[type="submit"], input[type="button"], input[type="reset"]  {
+        width: 100%;
+    }
+}
+
 input[type="submit"]:disabled {
     background: grey;
     color: white;
@@ -70,6 +106,12 @@ input[type="text"], input[type="email"]  {
     padding-left: 0.5rem;
     box-sizing: border-box;
     font-family: 'Nunito Sans';
+}
+
+@media screen and (max-width: 481px) {
+    input[type="email"]  {
+        font-size: 1.25rem;
+    }
 }
 
 input[type="number"]  {
