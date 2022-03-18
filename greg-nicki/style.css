@@ -522,6 +522,17 @@ figcaption {
           box-sizing: border-box;
 }
 
+@media screen and (max-width: 480px) {
+  #comments {
+    width: 300px;
+    padding-left: 0;
+  }
+}
+
+#comments .comment-notes, #comments .comment-form-comment, #comments .comment-form-author, #comments .comment-form-email, #comments .comment-form-url, #comments .comment-form-cookies-consent {
+  display: none;
+}
+
 #respond {
   display: none;
 }
