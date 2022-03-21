@@ -539,6 +539,29 @@ figcaption  {
     @media screen and (min-width: $min_desktop_width) {
         width: 400px;
     }
+
+    .category-more-info {
+
+        @media screen and (min-width: $min_desktop_width) {
+            font-weight: bold;
+            font-size: 1.5rem;
+            padding-right: 2rem;
+            box-sizing: border-box;
+        }
+
+        @media screen and (max-width: $max_mobile_width) {
+            font-weight: bold;
+            font-size: 1rem;
+            width: $tile_width;
+            margin: auto;
+            margin-top: 2rem;
+
+            &:last-child  {
+                margin-bottom: 2rem;
+            }
+        }
+        
+    }
 }
 
 .page-header h1, .page-entry-title  {
@@ -635,11 +658,35 @@ figcaption  {
     }
 }
 
-footer  {
+footer#colophon  {
+
+    background-color: black;
+    height: 3rem;
+    color: white;
+    line-height: 3rem;
+    margin-top: 4rem;
 
     .site-info  {
         text-align: center;
         font-size: 0.5rem;
+
+        @media screen and (min-width: $min_desktop_width) {
+            font-weight: bold;
+            letter-spacing: 1.1px;
+        }
+
+        a  {
+            color: white;
+            text-decoration: underline;
+
+            &:visited  {
+                color: white;
+            }
+
+            &:hover  {
+                text-decoration: none;
+            }
+        }
     }
 
 }

@@ -556,6 +556,29 @@ figcaption {
   }
 }
 
+@media screen and (min-width: 1025px) {
+  .page-header .category-more-info {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-right: 2rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page-header .category-more-info {
+    font-weight: bold;
+    font-size: 1rem;
+    width: 300px;
+    margin: auto;
+    margin-top: 2rem;
+  }
+  .page-header .category-more-info:last-child {
+    margin-bottom: 2rem;
+  }
+}
+
 .page-header h1, .page-entry-title {
   text-transform: capitalize;
 }
@@ -662,9 +685,37 @@ figcaption {
   margin-right: 0.5rem;
 }
 
-footer .site-info {
+footer#colophon {
+  background-color: black;
+  height: 3rem;
+  color: white;
+  line-height: 3rem;
+  margin-top: 4rem;
+}
+
+footer#colophon .site-info {
   text-align: center;
   font-size: 0.5rem;
+}
+
+@media screen and (min-width: 1025px) {
+  footer#colophon .site-info {
+    font-weight: bold;
+    letter-spacing: 1.1px;
+  }
+}
+
+footer#colophon .site-info a {
+  color: white;
+  text-decoration: underline;
+}
+
+footer#colophon .site-info a:visited {
+  color: white;
+}
+
+footer#colophon .site-info a:hover {
+  text-decoration: none;
 }
 
 #wpgmza_map {
