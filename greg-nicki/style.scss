@@ -4,7 +4,9 @@ $min_desktop_width: 1025px;
 $max_desktop_width: 1920px;
 
 $min_tablet_width: 481px;
+$max_tablet_width_portrait: 768px;
 $max_tablet_width: 1024px;
+$max_tablet_width_landscape: 1024px;
 
 $max_mobile_width: 480px;
 
@@ -203,6 +205,7 @@ h1  {
     font-family: $display_font;
 }
 
+
 #name  {
     text-align: center;
     color: white;
@@ -284,8 +287,8 @@ main  {
         margin-top: 6rem;
     }
 
-    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
-        width: calc(#{$max_tablet_width} - 2rem);
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width_portrait) {
+        width: calc(#{$max_tablet_width_portrait} - 2rem);
         margin: auto;
         margin-top: 6rem;
     }
@@ -342,6 +345,7 @@ figcaption  {
         width: 664px;
         margin: auto;
         flex-wrap: wrap;
+        margin-top: 3rem;
     }
     
 
@@ -357,6 +361,7 @@ figcaption  {
         flex-direction: row;
         gap: 0.5rem;
         flex-wrap: wrap;
+        margin-left: -1.5rem;
 
         @media screen and (max-width: $max_mobile_width) {
             flex-direction: column;
@@ -560,6 +565,16 @@ figcaption  {
                 margin-bottom: 2rem;
             }
         }
+
+        @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width_portrait) {
+            width: calc((#{$tile_width} * 2) + 1rem);
+            margin: auto;
+            margin-top: 1.5rem;
+
+            &:last-child  {
+                margin-bottom: 2rem;
+            }
+        }
         
     }
 }
@@ -574,6 +589,11 @@ figcaption  {
         margin-bottom: -1rem;
         margin-top: 2rem;
         
+    }
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width_portrait)  {
+        margin-bottom: 0;
+        margin-top: -2rem;
     }
 
     @media screen and (min-width: $min_desktop_width) {
@@ -808,9 +828,14 @@ footer#colophon  {
     color: white;
     height: 1.5rem;
     margin-top: -1.5rem;
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
+        margin-left: 0;
+    }
 }
 
-@media screen and (min-width: 37.5em) {
+//@media screen and (min-width: 37.5em) 
+    @media screen and (min-width: $min_desktop_width) {
 
 	.menu-toggle {
 		display: none;

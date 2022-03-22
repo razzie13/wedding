@@ -278,9 +278,9 @@ h1 {
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
   main {
-    width: calc(1024px - 2rem);
+    width: calc(768px - 2rem);
     margin: auto;
     margin-top: 6rem;
   }
@@ -347,6 +347,7 @@ figcaption {
     margin: auto;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    margin-top: 3rem;
   }
 }
 
@@ -373,6 +374,7 @@ figcaption {
   gap: 0.5rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-left: -1.5rem;
 }
 
 @media screen and (max-width: 480px) {
@@ -579,6 +581,17 @@ figcaption {
   }
 }
 
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .page-header .category-more-info {
+    width: calc((300px * 2) + 1rem);
+    margin: auto;
+    margin-top: 1.5rem;
+  }
+  .page-header .category-more-info:last-child {
+    margin-bottom: 2rem;
+  }
+}
+
 .page-header h1, .page-entry-title {
   text-transform: capitalize;
 }
@@ -589,6 +602,13 @@ figcaption {
     font-size: 4rem;
     margin-bottom: -1rem;
     margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .page-header h1, .page-entry-title {
+    margin-bottom: 0;
+    margin-top: -2rem;
   }
 }
 
@@ -849,7 +869,14 @@ footer#colophon .site-info a:hover {
   margin-top: -1.5rem;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .menu-toggle,
+  .main-navigation.toggled ul {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 1025px) {
   .menu-toggle {
     display: none;
   }
