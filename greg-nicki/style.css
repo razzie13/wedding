@@ -102,7 +102,14 @@ header .site-title {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  header .site-title {
+    width: 1280px;
+    padding-left: 3.5rem;
+  }
+}
+
+@media screen and (min-width: calc(1280px + 1px)) {
   header .site-title {
     text-align: left;
     max-width: 1360px;
@@ -278,6 +285,12 @@ h1 {
   }
 }
 
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  main {
+    width: calc(1280px - 8rem);
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 768px) {
   main {
     width: calc(768px - 2rem);
@@ -409,10 +422,23 @@ figcaption {
   font-weight: bold;
 }
 
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .wedding-posts ul.gift-registry-category-tiles li {
+    line-height: calc(260px - 1rem);
+  }
+}
+
 @media screen and (max-width: 480px) {
   .wedding-posts ul.gift-registry-category-tiles li {
     line-height: calc((300px / 2) - 1rem);
     height: calc(300px / 2);
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .wedding-posts ul.gift-registry-category-tiles li {
+    width: 260px;
+    height: 260px;
   }
 }
 
@@ -461,9 +487,25 @@ figcaption {
   position: relative;
 }
 
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .wedding-posts article {
+    width: 260px;
+    height: 260px;
+  }
+  .wedding-posts article p {
+    font-size: 0.8rem;
+  }
+}
+
 .wedding-posts article h2 {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .wedding-posts article h2 {
+    font-size: 1rem;
+  }
 }
 
 .wedding-posts article h2 a {
@@ -612,7 +654,14 @@ figcaption {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .page-header h1, .page-entry-title {
+    font-size: 5rem;
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: calc(1280px + 1px)) {
   .page-header h1, .page-entry-title {
     font-size: 5rem;
     width: 460px;
@@ -633,7 +682,16 @@ figcaption {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .page-content {
+    width: 832px;
+  }
+  .page-content p {
+    padding-right: 4rem;
+  }
+}
+
+@media screen and (min-width: calc(1280px + 1px)) {
   .page-content {
     width: 900px;
     margin: auto;
@@ -749,7 +807,14 @@ footer#colophon .site-info a:hover {
   width: 100%;
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .main-navigation {
+    margin: -7rem auto;
+    margin-left: calc(((100% - 1280px) / 2) + 23rem);
+  }
+}
+
+@media screen and (min-width: calc(1280px + 1px)) {
   .main-navigation {
     margin: -7rem auto;
     margin-left: calc(((100% - 1360px) / 2) + 23rem);
@@ -835,7 +900,17 @@ footer#colophon .site-info a:hover {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .main-navigation li {
+    background-color: black;
+    padding-left: 1.5rem;
+  }
+  .main-navigation li:first-child {
+    padding-left: 2.5rem;
+  }
+}
+
+@media screen and (min-width: calc(1280px + 1px)) {
   .main-navigation li {
     background-color: black;
     padding-left: 2.5rem;
@@ -848,6 +923,12 @@ footer#colophon .site-info a:hover {
   color: white;
   font-weight: 700;
   letter-spacing: 2px;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .main-navigation a {
+    letter-spacing: 1.2px;
+  }
 }
 
 @media screen and (min-width: 1025px) {

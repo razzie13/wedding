@@ -3,6 +3,8 @@ $min_ultrawide_width: 1921px;
 $min_desktop_width: 1025px;
 $max_desktop_width: 1920px;
 
+$sxga_desktop_width: 1280px;
+
 $min_tablet_width: 481px;
 $max_tablet_width_portrait: 768px;
 $max_tablet_width: 1024px;
@@ -16,6 +18,7 @@ $body_font: 'Nunito Sans';
 $desktop_main_width: 1360px;
 
 $tile_width: 300px;
+$sxga_tile_width: 260px;
 
 $link_colour: teal;
 
@@ -111,7 +114,12 @@ header  {
             text-align: center;
         }
 
-        @media screen and (min-width: $min_desktop_width) {
+        @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+            width: $sxga_desktop_width;
+            padding-left: 3.5rem;
+        }
+    
+        @media screen and (min-width: calc(#{$sxga_desktop_width} + 1px)) {
             text-align: left;
             max-width: $desktop_main_width;
             margin: auto;
@@ -122,6 +130,10 @@ header  {
             text-decoration: none;
             font-size: 3rem;
             font-weight: bold;
+
+            // @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+            //     padding-left: 4px;
+            // }
         }
     }
 
@@ -287,6 +299,10 @@ main  {
         margin-top: 6rem;
     }
 
+    @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+        width: calc(#{$sxga_desktop_width} - 8rem);
+    }
+
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width_portrait) {
         width: calc(#{$max_tablet_width_portrait} - 2rem);
         margin: auto;
@@ -388,9 +404,18 @@ figcaption  {
             text-transform: uppercase;
             font-weight: bold;
 
+            @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+                line-height: calc(#{$sxga_tile_width} - 1rem);
+            }
+
             @media screen and (max-width: $max_mobile_width) {
                 line-height: calc((#{$tile_width} / 2) - 1rem);
                 height: calc(#{$tile_width} / 2);
+            }
+
+            @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+                width: $sxga_tile_width;
+                height: $sxga_tile_width;
             }
 
                 &:hover  {
@@ -441,11 +466,25 @@ figcaption  {
         border-style: none;
         border-radius: 0.8rem;
         position: relative;
-    
+
+        @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+            width: $sxga_tile_width;
+            height: $sxga_tile_width;
+
+            p  {
+                font-size: 0.8rem;
+            }
+        }
+
+   
         h2  {
     
             margin-top: 0;
             margin-bottom: 0;
+
+            @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+                font-size: 1rem;
+            }
     
             a  {
                 text-decoration: none;
@@ -479,6 +518,9 @@ figcaption  {
             bottom: 0;
 
             li  {
+
+
+
                 a  {
                     text-decoration: underline;
 
@@ -596,7 +638,12 @@ figcaption  {
         margin-top: -2rem;
     }
 
-    @media screen and (min-width: $min_desktop_width) {
+    @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+        font-size: 5rem;
+        width: 320px
+    }
+
+    @media screen and (min-width: calc(#{$sxga_desktop_width} + 1px)) {
         font-size: 5rem;
         width: 460px
     }
@@ -616,11 +663,24 @@ figcaption  {
         }
     }
 
-    @media screen and (min-width: $min_desktop_width) {
+    @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+        width: 832px;
+
+        p  {
+            padding-right: 4rem;
+        }
+    }
+
+    @media screen and (min-width: calc(#{$sxga_desktop_width} + 1px)) {
         width: 900px;
         margin: auto;
         font-size: 1.5rem;
     }
+
+    // @media screen and (min-width: $sxga_desktop_width) and (min-width: $sxga_desktop_width) {
+    //     padding-right: 1.5rem;
+    // }
+    
 
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
         h2  {
@@ -721,7 +781,12 @@ footer#colophon  {
 	display: block;
 	width: 100%;
 
-    @media screen and (min-width: $min_desktop_width) {
+    @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+        margin: -7rem auto;
+        margin-left: calc(((100% - #{$sxga_desktop_width}) / 2) + 23rem);
+    }
+
+    @media screen and (min-width: calc(#{$sxga_desktop_width} + 1px)) {
         margin: -7rem auto;
         margin-left: calc(((100% - 1360px) / 2) + 23rem);
     }
@@ -729,6 +794,10 @@ footer#colophon  {
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width)  {
         margin: -2.8rem auto;
     }
+
+    // @media screen and (min-width: $sxga_desktop_width) and (min-width: $sxga_desktop_width) {
+    //     width: $sxga_desktop_width;
+    // }
 }
 
 .main-navigation ul {
@@ -796,10 +865,25 @@ footer#colophon  {
         padding-left: 1.5rem;
     }
 
-    @media screen and (min-width: $min_desktop_width) {
+    @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+        background-color: black;
+        padding-left: 1.5rem;
+
+        &:first-child  {
+            padding-left: 2.5rem;
+        }
+    }
+
+    @media screen and (min-width: calc(#{$sxga_desktop_width} + 1px)) {
         background-color: black;
         padding-left: 2.5rem;
+
+
     }
+
+    // @media screen and (min-width: $sxga_desktop_width) and (min-width: $sxga_desktop_width) {
+    //     padding-left: 1.5rem;
+    // }
     
 }
 
@@ -809,6 +893,10 @@ footer#colophon  {
     color: white;
     font-weight: 700;
     letter-spacing: 2px;
+
+    @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
+        letter-spacing: 1.2px;
+    }
 
     @media screen and (min-width: $min_desktop_width) {
         &:hover  {
