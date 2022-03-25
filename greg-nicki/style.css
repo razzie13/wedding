@@ -665,6 +665,9 @@ figcaption {
   .page-header h1, .page-entry-title {
     font-size: 5rem;
     width: 460px;
+    padding-right: 2rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
 }
 
@@ -688,6 +691,7 @@ figcaption {
   }
   .page-content p {
     padding-right: 4rem;
+    padding-left: 1.5rem;
   }
 }
 
@@ -725,6 +729,10 @@ figcaption {
 
 .page-content a:hover {
   text-decoration: none;
+}
+
+.page-content .larger-paragraph-font-size {
+  font-size: 3rem;
 }
 
 .flex-column {
@@ -804,20 +812,19 @@ footer#colophon .site-info a:hover {
 --------------------------------------------- */
 .main-navigation {
   display: block;
-  width: 100%;
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
   .main-navigation {
     margin: -7rem auto;
-    margin-left: calc(((100% - 1280px) / 2) + 23rem);
+    margin-left: calc(((100% - 1280px) / 2) + 24rem);
   }
 }
 
 @media screen and (min-width: calc(1280px + 1px)) {
   .main-navigation {
     margin: -7rem auto;
-    margin-left: calc(((100% - 1360px) / 2) + 23rem);
+    margin-left: calc(((100% - 1360px) / 2) + 24.25rem);
   }
 }
 

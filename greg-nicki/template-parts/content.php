@@ -50,19 +50,30 @@ if ( '1' === get_comments_number() ) {
 		<br>
 		<ul class="gift-registry-tile-links">
 			<li><a href="<?php the_field('exterior_link')?>" target="_blank" rel="noopener noreferrer"><strong>Product Link</strong></a><i class="fas fa-external-link-alt"></i></li>
-			
+
 			<?php
 			if (single_cat_title('', false) != "More" ) {
-				echo '<li>Store Product ID: ' , the_field('product_id') , '</li>';
-				echo '<li>Number Requested: ' , the_field('number_requested') , '</li>';
-				echo '<li>Sold In Stores: ' , the_field('sold_in_stores') , '</li>';
-				if ( '1' === get_comments_number() ) {
-					echo '<li><strong>Item Has Been Purchased</strong></li>';
+				if (single_cat_title('', false) != "Gift Cards")  {
+					echo '<li>Store Product ID: ' , the_field('product_id') , '</li>';
+				}
+				if (single_cat_title('', false) != "Gift Cards")  {
+					echo '<li>Number Requested: ' , the_field('number_requested') , '</li>';
 				} else  {
-					echo '<li><strong><a href="' . get_permalink() . '" rel="bookmark">Mark Item as Purchased</a></strong></li>';
-				}			
+					echo '<li>Number Requested: Any Amount</li>';
+				}
+				echo '<li>Available ' , the_field('sold_in_stores') , '</li>';
+				if (single_cat_title('', false) != "Gift Cards")  {
+					if ( '1' === get_comments_number() ) {
+						echo '<li><strong>Item Has Been Purchased</strong></li>';
+					} else  {
+						echo '<li><strong><a href="' . get_permalink() . '" rel="bookmark">Mark Item as Purchased</a></strong></li>';
+					}	
+
+				}					
 			}
-		?>
+			?>
+
+
 		</ul>
 
 		<?php

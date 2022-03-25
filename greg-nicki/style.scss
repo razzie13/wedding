@@ -645,7 +645,9 @@ figcaption  {
 
     @media screen and (min-width: calc(#{$sxga_desktop_width} + 1px)) {
         font-size: 5rem;
-        width: 460px
+        width: 460px;
+        padding-right: 2rem;
+        box-sizing: border-box;
     }
 }
 
@@ -668,6 +670,7 @@ figcaption  {
 
         p  {
             padding-right: 4rem;
+            padding-left: 1.5rem;
         }
     }
 
@@ -706,6 +709,10 @@ figcaption  {
         &:hover  {
             text-decoration: none;
         }
+    }
+
+    .larger-paragraph-font-size  {
+        font-size: 3rem;
     }
     
 }
@@ -779,16 +786,16 @@ footer#colophon  {
 --------------------------------------------- */
 .main-navigation {
 	display: block;
-	width: 100%;
+	//width: 100%;
 
     @media screen and (min-width: $min_desktop_width) and (max-width: $sxga_desktop_width) {
         margin: -7rem auto;
-        margin-left: calc(((100% - #{$sxga_desktop_width}) / 2) + 23rem);
+        margin-left: calc(((100% - #{$sxga_desktop_width}) / 2) + 24rem);
     }
 
     @media screen and (min-width: calc(#{$sxga_desktop_width} + 1px)) {
         margin: -7rem auto;
-        margin-left: calc(((100% - 1360px) / 2) + 23rem);
+        margin-left: calc(((100% - 1360px) / 2) + 24.25rem);
     }
 
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width)  {
