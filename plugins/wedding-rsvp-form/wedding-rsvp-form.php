@@ -143,6 +143,7 @@ class WeddingRsvpForm  {
         echo '<p>Thank you for your RSVP. We are saddened you cannot make it to our event.</p>';
         } ?> -->
 
+        <main>
 
         <h2>We're so excited to hear from you!</h2>
         <h5 id="post-code-confirm" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">You have entered <? if (strlen($postal_code) < 6) {echo 'Zip Code';} else {echo 'Postal Code';} ?> <?php foreach($result as $row):?><?= $row['Postal_Code'] ?><?php endforeach ?></h5>
@@ -261,6 +262,8 @@ class WeddingRsvpForm  {
 
         </div>
 
+        
+
         <div id="confirm-not-attending" class="hide">
 
             <h3>Confirm that you are unable to make it to our event.</h3>
@@ -277,6 +280,10 @@ class WeddingRsvpForm  {
                 We are so sorry to hear you cannot join us on our special day, but we do appreciate you letting us know!
             </p>
         </div>
+
+        </main>
+
+        <?php get_footer(); ?>
  
     <?php }  
 
