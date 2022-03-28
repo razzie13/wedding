@@ -176,3 +176,23 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load Custom Front Page Body Class
+ */
+
+function add_body_class_names_front_page($classes) {
+    // add 'class-name' to the $classes array
+    if( is_front_page() ) $classes[] = 'body-front-page-bg';
+    // return the $classes array
+    return $classes;
+}
+add_filter('body_class','add_body_class_names_front_page');
+
+
+function add_body_class_names_rsvp_page($classes) {
+    // add 'class-name' to the $classes array
+    if( is_page('RSVP') ) $classes[] = 'page-rsvp';
+    // return the $classes array
+    return $classes;
+}
+add_filter('body_class','add_body_class_names_rsvp_page');

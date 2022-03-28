@@ -4,7 +4,7 @@
 get_header();
 ?>
 
-<main class="body-front-page-bg">
+<main>
 
 
     <div id="name">Greg & Nicki</div>

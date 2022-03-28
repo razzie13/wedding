@@ -143,8 +143,6 @@ class WeddingRsvpForm  {
         echo '<p>Thank you for your RSVP. We are saddened you cannot make it to our event.</p>';
         } ?> -->
 
-        <main>
-
         <h2>We're so excited to hear from you!</h2>
         <h5 id="post-code-confirm" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">You have entered <? if (strlen($postal_code) < 6) {echo 'Zip Code';} else {echo 'Postal Code';} ?> <?php foreach($result as $row):?><?= $row['Postal_Code'] ?><?php endforeach ?></h5>
         <h5 class="<? if($result == null) {echo 'hide';} else {echo 'show';} ?>"><?php if ($postal_code == $result)  {'Sorry, It appears nobody at your address has been invited.';}  ?></h5>
@@ -166,13 +164,7 @@ class WeddingRsvpForm  {
                 </div>
                 
 
-                <!-- <div id="enter-security-code" class="<? if($postal_code == null) {echo 'hide';} else {echo 'show';} ?>">
-                    <label for='postcode'>Enter the First Two Letters from Word <?php echo $postal_code[1]; ?> inside your invitation:</label><br>
 
-                    <input type="text" id="securitycode" name="securitycode" placeholder="XX" value=""><br><br>
-                    <?php echo "<input type='submit' value='Next' name='submit-button-one'>"; ?>
-                    
-                </div> -->
                 
             </div>
 
@@ -281,9 +273,7 @@ class WeddingRsvpForm  {
             </p>
         </div>
 
-        </main>
 
-        <?php get_footer(); ?>
  
     <?php }  
 
