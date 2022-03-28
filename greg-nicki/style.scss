@@ -49,32 +49,62 @@ $link_colour: teal;
 }
 
 body  {
-    padding: 0;
     margin: 0;
-    background-image: url('../images/pictures/greg_nicki_main_bg.jpg');
+    padding: 0;
+    font-family: $body_font;
+}
+
+.body-front-page-bg  {
+    background-image: url('./images/pictures/greg_nicki_main_bg.jpg');
     background-repeat: no-repeat;
     font-family: $body_font;
-
+    position: relative;
+    min-height: calc(100vh - 2rem);
 
     @media screen and (max-width: $max_mobile_width) {
-        background-position: center top 30%;
+        background-position: center top;
+        background-size: cover;
+        height: calc(100vh - 5rem);
+        margin-top: -12rem;
+
+        #name  {
+            display: none;
+        }
     }
 
-    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
-        background-position: center top;
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) and (orientation: portrait) {
+        background-position: center top 80%;
+        background-size: cover;
+    }
+
+    @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) and (orientation: landscape) {
+        background-position: center top 68%;
         background-size: cover;
     }
 
     @media screen and (min-width: $min_desktop_width) and (max-width: $max_desktop_width) {
-        background-position: center top 43%;
+        background-position: center top 68%;
         background-size: cover;
+
+        .site-description  {
+            visibility: hidden;
+        }
     }
 
     @media screen and (min-width: $min_ultrawide_width) {
-        background-position: center top 48%;
+        background-position: center top 78%;
         background-size: cover;
+
+        .site-description  {
+            visibility: hidden;
+        }
     }
     
+}
+
+#page  {
+    position: relative;
+    min-height: calc(100vh - 2rem);
 }
 
 header  {
@@ -217,6 +247,14 @@ h1  {
     font-family: $display_font;
 }
 
+.hide  {
+    display: none;
+}
+
+.invisible  {
+    visibility: hidden;
+}
+
 
 #name  {
     text-align: center;
@@ -292,6 +330,9 @@ h1  {
 }
 
 main  {
+
+    padding-bottom: 5rem;
+
     @media screen and (min-width: $min_desktop_width) {
         display: flex;
         max-width: $desktop_main_width;
@@ -409,7 +450,7 @@ figcaption  {
             }
 
             @media screen and (max-width: $max_mobile_width) {
-                line-height: calc((#{$tile_width} / 2) - 1rem);
+                line-height: calc((#{$tile_width} / 2) - 1.5rem);
                 height: calc(#{$tile_width} / 2);
             }
 
@@ -549,14 +590,32 @@ figcaption  {
 }
 
 #comments  {
-    width: $desktop_main_width;
-    margin: auto;
-    padding-left: calc(460px + 2rem);
-    box-sizing: border-box;
+
+    @media screen and (min-width: $max_tablet_width_portrait) and (max-width: $max_tablet_width_landscape) {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    // @media screen and (min-width: $max_tablet_width_landscape) and (max-width: $max_tablet_width_landscape) {
+    //     width: ;
+    // }
+
+    @media screen and (min-width: $sxga_desktop_width) {
+        width: $desktop_main_width;
+        margin: auto;
+        padding-left: calc(460px + 2rem);
+        box-sizing: border-box;
+    }
+
+    
 
     @media screen and (max-width: $max_mobile_width) {
         width: 300px;
         padding-left: 0;
+        margin-top: -5rem;
+        padding-bottom: 5rem;
+        margin: auto;
     }
 
     .comment-notes, .comment-form-comment, .comment-form-author, .comment-form-email, .comment-form-url, .comment-form-cookies-consent {
@@ -752,14 +811,21 @@ footer#colophon  {
     color: white;
     line-height: 3rem;
     margin-top: 4rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
     .site-info  {
         text-align: center;
-        font-size: 0.5rem;
+        font-size: 0.75rem;
 
         @media screen and (min-width: $min_desktop_width) {
             font-weight: bold;
             letter-spacing: 1.1px;
+        }
+
+        @media screen and (max-width: $max_mobile_width) {
+            font-size: 0.75rem;
         }
 
         a  {

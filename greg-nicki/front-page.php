@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="cache-control" content="no-cache">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-    <title>Greg & Nicki - The Wedding Website</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
+<?php get_header(); ?>
 
-    </header>
+<?php
+get_header();
+?>
+
+<main class="body-front-page-bg">
+
 
     <div id="name">Greg & Nicki</div>
 
     <div id="date"></div>
+
+</main>
     
 
     <script src="scripts/wedding-countdown.js"></script>
-</body>
-</html>
+    <?php
+
+get_footer();

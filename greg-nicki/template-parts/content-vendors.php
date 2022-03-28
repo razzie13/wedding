@@ -34,7 +34,9 @@
 		?>
 		<a href="<?php the_field('vendor_website') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_website') ?></a>
 		<br>
+		<span class=<?php if (the_field('vendor_insta') == '') {echo 'invisible';} else {echo 'show';} ?>>
 		<i class="fab fa-instagram-square"></i>@<a href="https://www.instagram.com/<?php the_field('vendor_insta') ?>" target="_blank" rel="noopener noreferrer"><?php the_field('vendor_insta') ?></a>
+		</span>
 
 	<?php greg_nicki_post_thumbnail(); ?>
 

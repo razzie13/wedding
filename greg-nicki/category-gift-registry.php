@@ -25,11 +25,11 @@ get_header();
 				<h1><?php single_cat_title(); ?></h1>
 
 				<p class="category-more-info">
-					We thank you for visiting our online gift registry! Here you will find some fun wedding gift ideas, as well as some links to outside registries.
+					We thank you for visiting our online gift registry! Here you will find some fun wedding gift ideas, as well as links to outside registries.
 				</p>
 
 				<p class="category-more-info">
-					If you make a purchase using our registry, aside from gift cards, please mark the item as purchased by clicking the link on the bottom of each item to avoid duplicate gifts.
+					If you make a purchase using our registry, aside from gift cards, please mark the item as purchased by clicking the link on the bottom of the listed item to avoid the gifting of duplicate gifts.
 				</p>
 
 				
