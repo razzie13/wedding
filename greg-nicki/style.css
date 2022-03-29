@@ -88,10 +88,8 @@ body {
   min-height: calc(100vh - 2rem);
 }
 
-@media screen and (max-width: 480px) {
-  .page-rsvp #colophon {
-    display: none;
-  }
+.page-rsvp #colophon {
+  display: none;
 }
 
 header {

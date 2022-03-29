@@ -107,15 +107,19 @@ body  {
     min-height: calc(100vh - 2rem);
 }
 
-@media screen and (max-width: $max_mobile_width) {
-    .page-rsvp  {
-        #colophon  {
-            display: none;
-        }
+// @media screen and (max-width: $max_mobile_width) {
+//     .page-rsvp  {
+//         #colophon  {
+//             display: none;
+//         }
+//     }
+// }
+
+.page-rsvp  {
+    #colophon  {
+        display: none;
     }
 }
-
-
 
 header  {
     
