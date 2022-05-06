@@ -104,7 +104,8 @@ body  {
 
 #page  {
     position: relative;
-    min-height: calc(100vh - 2rem);
+    //min-height: calc(100vh - 2rem);
+    min-height: 100vh;
 }
 
 // @media screen and (max-width: $max_mobile_width) {
@@ -351,7 +352,7 @@ main  {
         display: flex;
         max-width: $desktop_main_width;
         margin: auto;
-        margin-top: 6rem;
+        margin-top: 4rem;
     }
 
     
@@ -896,6 +897,7 @@ footer#colophon  {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+    padding-top: 0.4rem;
 
     @media screen and (min-width: $min_tablet_width) and (max-width: $max_tablet_width) {
         background-color: teal;

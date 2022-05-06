@@ -52,7 +52,7 @@ if ( '1' === get_comments_number() ) {
 			<li><a href="<?php the_field('exterior_link')?>" target="_blank" rel="noopener noreferrer"><strong>Product Link</strong></a><i class="fas fa-external-link-alt"></i></li>
 
 			<?php
-			if (single_cat_title('', false) != "More" ) {
+			if (single_cat_title('', false) != "Hudsons Bay" ) {
 				if (single_cat_title('', false) != "Gift Cards")  {
 					echo '<li>Store Product ID: ' , the_field('product_id') , '</li>';
 				}
